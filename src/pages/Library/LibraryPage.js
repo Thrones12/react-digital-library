@@ -5,26 +5,87 @@ import "./LibraryPage.css";
 const LibraryPage = () => {
     return (
         <div className='col col-10'>
-            <div className='breadcrumb'>
-                <Link to='/home'>Trang chủ</Link>
-                <p>{" > "}</p>
-                <Link to='/library'>Thư viện</Link>
-            </div>
-
-            <div className='tools'>
-                <div className='search'>Search</div>
-                <div className='sort'>Sort</div>
-            </div>
-
             <div className='cards'>
-                <div className='card'>Card</div>
-                <div className='card'>Card</div>
-                <div className='card'>Card</div>
-                <div className='card'>Card</div>
-                <div className='card'>Card</div>
-                <div className='card'>Card</div>
-                <div className='card'>Card</div>
-                <div className='card'>Card</div>
+                <Link to='/book/1' className='card'>
+                    <img src='/images/book-item.jpg' alt='Book Item' />
+                    <div className='card-content'>
+                        <div className='card-title'>Luân hồi lạc viên</div>
+                        <div className='card-footer'>
+                            <div className='card-author'>Phong</div>
+                            <div className='card-category'>Khoa huyễn</div>
+                        </div>
+                    </div>
+                </Link>
+                <Link to='/book/1' className='card'>
+                    <img src='/images/book-item.jpg' alt='Book Item' />
+                    <div className='card-content'>
+                        <div className='card-title'>Luân hồi lạc viên</div>
+                        <div className='card-footer'>
+                            <div className='card-author'>Phong</div>
+                            <div className='card-category'>Khoa huyễn</div>
+                        </div>
+                    </div>
+                </Link>
+                <Link to='/book/1' className='card'>
+                    <img src='/images/book-item.jpg' alt='Book Item' />
+                    <div className='card-content'>
+                        <div className='card-title'>Luân hồi lạc viên</div>
+                        <div className='card-footer'>
+                            <div className='card-author'>Phong</div>
+                            <div className='card-category'>Khoa huyễn</div>
+                        </div>
+                    </div>
+                </Link>
+                <Link to='/book/1' className='card'>
+                    <img src='/images/book-item.jpg' alt='Book Item' />
+                    <div className='card-content'>
+                        <div className='card-title'>Luân hồi lạc viên</div>
+                        <div className='card-footer'>
+                            <div className='card-author'>Phong</div>
+                            <div className='card-category'>Khoa huyễn</div>
+                        </div>
+                    </div>
+                </Link>
+                <Link to='/book/1' className='card'>
+                    <img src='/images/book-item.jpg' alt='Book Item' />
+                    <div className='card-content'>
+                        <div className='card-title'>Luân hồi lạc viên</div>
+                        <div className='card-footer'>
+                            <div className='card-author'>Phong</div>
+                            <div className='card-category'>Khoa huyễn</div>
+                        </div>
+                    </div>
+                </Link>
+                <Link to='/book/1' className='card'>
+                    <img src='/images/book-item.jpg' alt='Book Item' />
+                    <div className='card-content'>
+                        <div className='card-title'>Luân hồi lạc viên</div>
+                        <div className='card-footer'>
+                            <div className='card-author'>Phong</div>
+                            <div className='card-category'>Khoa huyễn</div>
+                        </div>
+                    </div>
+                </Link>
+                <Link to='/book/1' className='card'>
+                    <img src='/images/book-item.jpg' alt='Book Item' />
+                    <div className='card-content'>
+                        <div className='card-title'>Luân hồi lạc viên</div>
+                        <div className='card-footer'>
+                            <div className='card-author'>Phong</div>
+                            <div className='card-category'>Khoa huyễn</div>
+                        </div>
+                    </div>
+                </Link>
+                <Link to='/book/1' className='card'>
+                    <img src='/images/book-item.jpg' alt='Book Item' />
+                    <div className='card-content'>
+                        <div className='card-title'>Luân hồi lạc viên</div>
+                        <div className='card-footer'>
+                            <div className='card-author'>Phong</div>
+                            <div className='card-category'>Khoa huyễn</div>
+                        </div>
+                    </div>
+                </Link>
             </div>
         </div>
     );

@@ -36,7 +36,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className='header-controls'>
-                    <Link className='header-login' to='/login'>
+                    <Link className='header-login' to='/auth/login'>
                         <img src='/images/account.jpg' alt='icon' />
                         <p>Đăng nhập</p>
                     </Link>

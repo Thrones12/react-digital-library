@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./HomePage.css";
-import { Autoplay } from "swiper/modules";
 
 const HomePage = () => {
     const cateSettings = {

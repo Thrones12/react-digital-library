@@ -1,31 +1,62 @@
-.breadcrumb {
-    display: flex;
-    flex-direction: row;
-}
-
-.breadcrumb * {
-    margin: 0 5px 0 0;
-    text-decoration: none;
-}
-
-.tools {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin: 20px 0;
-}
-
 .cards {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 20px; /* Khoảng cách giữa các phần tử */
 }
 
 .card {
     display: flex;
-    width: 22.5%;
-    height: 250px;
-    margin-bottom: 25px;
+    flex-direction: row;
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 20px;
     background-color: var(--color-light-brown);
+    text-decoration: none;
+    color: var(--color-dark-brown);
+    font-size: 16px;
     box-shadow: var(--box-shadow);
+    transition: all 0.15s ease;
+}
+
+.card > *:last-child {
+    margin-right: 0;
+}
+
+.card:hover {
+    transform: translate(0, -5px);
+}
+
+.card img {
+    height: 120px;
+    object-fit: fill;
+}
+
+.card-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    flex: 1;
+    text-align: justify;
+    display: flex;
+    align-items: center;
+}
+
+.card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-category {
+    font-style: italic;
+    border: 1px solid var(--color-medium-brown);
+    padding: 2px 5px;
 }
