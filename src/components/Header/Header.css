@@ -1,0 +1,84 @@
+header {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg-1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.header-logo a {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--text-color-1);
+}
+
+.header-logo img {
+    height: 80px;
+}
+
+.header-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.header-nav a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin: 0 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.header-nav a:hover {
+    transform: translate(0, -5px);
+}
+
+.header-nav a img {
+    margin: 0 auto;
+}
+
+.header-nav a p {
+    margin: 5px 0;
+}
+
+.header-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header-login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-controls a {
+    height: 40px;
+    margin: 0 5px;
+    transition: all 0.15s ease;
+}
+
+.header-controls a:hover {
+    height: 50px;
+}
+
+.header-controls img {
+    height: 40px;
+    width: 40px;
+}

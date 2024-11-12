@@ -1,0 +1,335 @@
+.section {
+    background-color: #f5f5f5;
+    padding: 80px 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.section h6 {
+    color: var(--color-medium-brown);
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.section-title {
+    font-size: 36px;
+    margin: 15px 0;
+}
+
+.section-search {
+    background-color: #f5f5f5;
+    padding-bottom: 40px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Background Image */
+.section-search .background-image {
+    background-image: url("../../../public/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 800px; /* Độ cao của phần này */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Search Bar */
+.section-search .search-bar {
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 1200px;
+    position: absolute;
+    bottom: 30%;
+    box-shadow: var(--box-shadow);
+}
+
+.section-search .search-bar input {
+    font-size: 16px;
+    flex: 1;
+    padding: 20px 30px;
+    border: none;
+    background-color: #ebebeb;
+    transition: all 0.15s ease;
+}
+
+.section-search .search-bar input:focus {
+    outline: none;
+    border: none;
+    background-color: var(--color-pure-white);
+}
+
+.section-search .search-bar input:hover {
+    background-color: var(--color-pure-white);
+}
+
+.section-search .search-bar button {
+    font-size: 16px;
+    padding: 20px 30px;
+    background-color: var(--color-medium-brown);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.section-search .search-bar button:hover {
+    background-color: #7b5e4e;
+}
+
+/* Category Slider */
+.slider-wrapper .slider-wrapper {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0 60px;
+    position: relative;
+    transform: translateY(-50%); /* Di chuyển lên trên 50% */
+}
+
+.slider-wrapper .slick-slide {
+    background-color: #d7ccc8; /* Màu nền cho mỗi phần tử */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px; /* Chiều cao mỗi phần tử */
+}
+
+.slick-prev,
+.slick-next {
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    border: none;
+    background-color: transparent; /* Nền trong suốt */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--color-dark-brown); /* Màu mặc định của nút */
+    transition: background-color 0.2s, color 0.2s; /* Hiệu ứng khi hover */
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-size: 50px;
+    color: var(--color-light-brown); /* Màu mặc định của mũi tên */
+    transition: color 0.15s ease; /* Hiệu ứng thay đổi màu mũi tên */
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+    color: var(--color-medium-brown); /* Màu mũi tên khi hover */
+}
+
+.slick-prev {
+    left: -40px;
+}
+
+.slick-next {
+    right: -40px;
+}
+
+/* Hiệu ứng hover */
+.category-slider {
+    padding: 0 60px;
+    margin: 50px 0;
+}
+.category-slider .slick-track {
+    display: flex !important; /* Đảm bảo slick-track sử dụng flexbox */
+    gap: 40px; /* Điều chỉnh khoảng cách giữa các slide */
+}
+.category-slider .slick-slide {
+    border: 1px solid #000;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px; /* Chiều cao cố định của slide */
+}
+.category-slider .slick-slide div {
+    width: 100%;
+    height: 100%;
+}
+.category-slider .slick-slide img {
+    width: 100%;
+    height: 80%;
+}
+
+.category-slider .slick-slide .slide-title {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+/* RECOMMEND */
+.recommend {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.recommend a {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    width: 28%;
+}
+
+.recommend-item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    margin: 20px;
+    background-color: var(--color-light-brown);
+    border-radius: 10px; /* Adjust the radius as needed */
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: all 0.15s ease;
+}
+
+.recommend-item:hover {
+    transform: scale(1.025);
+}
+
+.recommend-item img {
+    height: 200px;
+    width: 150px;
+    object-fit: fill;
+}
+.recommend-item-title {
+    text-align: left;
+    font-size: 26px;
+    margin: 10px 0 0 10px;
+}
+
+.recommend-item-description {
+    text-align: justify;
+    display: flex; /* Standard display option */
+    line-clamp: 4; /* Standard property */
+    box-orient: vertical; /* Fallback */
+    flex-direction: column; /* Standard property */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5em; /* Adjust line height as needed */
+    height: 6em; /* Adjust height based on line height and desired lines */
+    margin: 5px 10px 10px;
+}
+
+.recommend-item-readmore {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 10px 0 0;
+}
+.recommend-item-readmore p {
+    color: var(--color-off-white);
+    background-color: var(--color-medium-brown);
+    border: none;
+    border-radius: 15px;
+    margin: 0;
+    padding: 2px 13px 5px;
+}
+
+.web-data {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.web-data-item {
+    width: 180px;
+    margin: 40px 10px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+.web-data-item p {
+    margin: 10px 0;
+    font-size: 30px;
+    color: var(--color-dark-brown);
+    font-weight: bold;
+}
+
+.book-introduction {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.introduction-item {
+    margin: 20px;
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.introduction-item iframe {
+    width: 100%;
+    height: 200px;
+}
+
+.introduction-text {
+    padding: 15px;
+}
+
+.introduction-title {
+    text-align: left;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.introduction-description {
+    text-align: justify;
+    display: flex; /* Standard display option */
+    line-clamp: 6; /* Standard property */
+    box-orient: vertical; /* Fallback */
+    flex-direction: column; /* Standard property */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5em; /* Adjust line height as needed */
+    height: 9em; /* Adjust height based on line height and desired lines */
+    margin: 5px 0 10px;
+}
+
+.introduction-more {
+    padding: 20px 0;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #000;
+}
+
+.introduction-more a {
+    text-decoration: none;
+    color: var(--color-dark-brown);
+    font-weight: 500;
+    transition: all 0.15s ease;
+    font-size: 18px;
+}
+
+.introduction-more a:hover {
+    transform: translate(0, -3px);
+}
+
+.introduction-btn-readmore button {
+    font-size: 20px;
+    margin-top: 40px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-medium-brown);
+    color: var(--color-off-white);
+    transition: all 0.2s ease;
+}
+
+.introduction-btn-readmore button:hover {
+    background-color: var(--color-dark-brown);
+}

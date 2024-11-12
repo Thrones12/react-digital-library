@@ -1,0 +1,51 @@
+footer {
+    background-color: var(--color-dark-brown);
+    display: flex;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    color: var(--color-off-white);
+    padding: 10px 0;
+}
+.socials {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.facebook {
+    background-color: #3b5998; /* Màu nền của Facebook */
+}
+
+.facebook:hover {
+    background-color: #0078ff; /* Màu nền khi hover */
+    transform: scale(1.1); /* Tăng kích thước khi hover */
+}
+
+.instagram {
+    background-color: #c13584; /* Màu nền của Instagram */
+}
+
+.instagram:hover {
+    background-color: #e4405f; /* Màu nền khi hover */
+    transform: scale(1.1); /* Tăng kích thước khi hover */
+}
