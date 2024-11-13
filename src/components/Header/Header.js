@@ -24,7 +24,7 @@ const Header = () => {
                     </Link>
                     <Link to='/help'>
                         <img src='/images/nav-icon-3.jpg' alt='icon' />
-                        <p>Trợ giúp</p>
+                        <p>Hỗ trợ</p>
                     </Link>
                     <Link to='/upload'>
                         <img src='/images/nav-icon-4.jpg' alt='icon' />

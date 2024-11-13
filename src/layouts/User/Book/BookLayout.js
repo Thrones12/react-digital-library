@@ -8,7 +8,7 @@ const BookLayout = () => {
         <div className='wrapper'>
             <Header />
 
-            <div className='section-title'>
+            <div className='page-title'>
                 <div className='background-image'>
                     <div className='container'>
                         <h2>TÀI LIỆU</h2>

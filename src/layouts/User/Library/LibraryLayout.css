@@ -2,7 +2,6 @@
     background-color: #f5f5f5;
     width: 100%;
     position: relative;
-    box-shadow: var(--box-shadow);
     margin: 0 0 50px 0;
     font-size: 36px;
 }

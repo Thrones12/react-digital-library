@@ -12,6 +12,7 @@ import UploadPage from "./pages/Upload/UploadPage";
 import RequestPage from "./pages/Request/RequestPage";
 
 import LoginPage from "./pages/Auth/Login/LoginPage";
+import ForgotPage from "./pages/Auth/Forgot/ForgotPage";
 
 import LibraryPage from "./pages/Library/LibraryPage";
 import BookPage from "./pages/Book/BookPage";
@@ -31,6 +32,7 @@ function App() {
                 <Route path='/auth/' element={<AuthLayout />}>
                     <Route index element={<LoginPage />} />
                     <Route path='login' element={<LoginPage />} />
+                    <Route path='forgot' element={<ForgotPage />} />
                 </Route>
                 <Route path='/library' element={<LibraryLayout />}>
                     <Route index element={<LibraryPage />} />
