@@ -1,0 +1,84 @@
+.upload-content {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+
+.upload-content > div {
+    padding: 0 10px;
+}
+
+.upload-form form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.upload-form input {
+    width: 43.5%;
+    padding: 8px 20px;
+    border: 1px solid var(--color-light-brown);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.upload-form textarea {
+    width: 100%;
+    padding: 8px 20px;
+    border: 1px solid var(--color-light-brown);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.upload-form input:focus,
+textarea:focus {
+    border: 1px solid var(--color-medium-brown);
+}
+
+.upload-form button {
+    border: 1px solid var(--color-medium-brown);
+    color: var(--color-medium-brown);
+    background-color: #fff;
+    padding: 10px 15px;
+    transition: all 0.4s ease;
+}
+
+.upload-form button:hover {
+    color: #fff;
+    background-color: var(--color-medium-brown);
+}
+
+.file-upload {
+    width: calc(43.5% + 40px);
+    border: 1px solid var(--color-light-brown);
+    outline: none;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: row;
+}
+
+.custom-file-upload {
+    color: #fff;
+    background-color: var(--color-medium-brown);
+    transition: all 0.4s ease;
+    padding: 8px 10px;
+}
+
+.custom-file-upload:hover {
+    background-color: #7a5c54; /* Slightly darker for hover */
+}
+
+.file-upload input {
+}
+
+#file-name {
+    color: var(--color-medium-brown);
+    transition: all 0.4s ease;
+    padding: 8px 10px;
+}
+
+.upload-content .thanks p {
+    text-align: justify;
+}
