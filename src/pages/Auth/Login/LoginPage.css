@@ -1,3 +1,19 @@
+/* Hiệu ứng trượt lên */
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.login-page .container {
+    animation: slideUp 1s ease-out;
+}
+
 .login-page {
     display: flex;
     background-color: var(--color-light-brown);
@@ -6,6 +22,16 @@
     flex-direction: column;
     overflow: hidden;
     height: 100vh;
+    width: 100vw;
+    background: url("/public/images/auth-form-bg.gif") no-repeat center center;
+    background-size: cover;
+}
+
+.login-page-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
 }
 
 .login-page h1 {
@@ -13,8 +39,12 @@
     letter-spacing: -1.5px;
     margin: 0;
     margin-bottom: 15px;
+    font-size: 40px;
+    color: var(--color-dark-brown);
+    text-shadow: var(--box-shadow);
 }
 .login-page h1.title {
+    color: var(--color-pure-white);
     font-size: 45px;
     line-height: 45px;
     margin: 0;
@@ -36,15 +66,17 @@
 }
 
 .login-page a {
-    color: #333;
-    font-size: 14px;
+    color: var(--color-medium-brown);
     text-decoration: none;
     margin: 15px 0;
-    transition: 0.3s ease-in-out;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .login-page a:hover {
-    color: aqua;
+    color: var(--color-dark-brown);
+    letter-spacing: 0.3px;
 }
 
 .login-page .content {
@@ -61,6 +93,40 @@
     justify-content: center;
 }
 
+.login-page .content .checkbox input[type="checkbox"] {
+    padding: 0;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-medium-brown); /* Đặt màu biên */
+    background-color: #fff; /* Màu nền khi chưa chọn */
+    appearance: none; /* Ẩn giao diện mặc định */
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    position: relative;
+}
+
+/* Khi checkbox được chọn */
+.login-page .content .checkbox input[type="checkbox"]:checked {
+    background-color: var(--color-medium-brown); /* Đặt màu biên */
+}
+/* Tạo dấu kiểm khi checkbox được chọn */
+.login-page .content .checkbox input[type="checkbox"]:checked::before {
+    content: "✔";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    color: white;
+    font-size: 14px;
+}
+
+.login-page .content .checkbox label {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
 .login-page .content input {
     accent-color: #333;
     width: 12px;
@@ -75,21 +141,23 @@
 
 .login-page button {
     position: relative;
-    border-radius: 20px;
-    border: 1px solid aqua;
-    background-color: aqua;
+    border-radius: 5px;
+    border: 1px solid var(--color-dark-brown);
+    background-color: var(--color-medium-brown);
     color: var(--color-pure-white);
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 700;
     margin: 10px;
     padding: 12px 80px;
     letter-spacing: 1px;
     text-transform: capitalize;
     transition: 0.3s ease-in-out;
+    box-shadow: var(--box-shadow);
 }
 
 .login-page button:hover {
     letter-spacing: 3px;
+    background-color: var(--color-dark-brown-hover);
 }
 
 .login-page button:active {
@@ -107,23 +175,35 @@
 }
 
 .login-page form {
-    background-color: #fff;
+    background-color: var(--color-off-white);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 0 50px;
+    padding: 0 40px;
     height: 100%;
     text-align: center;
 }
 
+.login-page form button {
+    margin-top: 20px;
+}
+
 .login-page input {
-    background-color: #eee;
-    border-radius: 10px;
-    border: none;
+    box-sizing: border-box;
+    border: 1px solid var(--color-light-brown);
+    background-color: #fff;
+    border-radius: 5px;
     padding: 12px 15px;
     margin: 8px 0;
     width: 100%;
+    font-size: 18px;
+    outline: none;
+    box-shadow: var(--box-shadow);
+}
+
+.login-page input:focus {
+    border: 1px solid var(--color-medium-brown);
 }
 
 .login-page .container {
@@ -258,4 +338,22 @@
 
 .login-page .container.right-panel-active .overlay-right {
     transform: translateX(20%);
+}
+
+.login-page .back-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin-left: 20px;
+    font-size: 25px;
+    transition: all 0.3s ease-in-out;
+    transform: rotateZ(10deg);
+}
+
+.login-page .back-icon:hover {
+    transform: rotateZ(-20deg) scale(1.1);
+}
+.login-page .container.right-panel-active .back-icon {
+    color: var(--color-off-white);
 }

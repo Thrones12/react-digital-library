@@ -1,6 +1,16 @@
+.forgot-page .container {
+    /* Animation trong LoginPage.css */
+    animation: slideUp 1s ease-out;
+}
+
 .forgot-page {
-    display: flex;
     background-color: var(--color-light-brown);
+    display: flex;
+    justify-content: center;
+}
+
+.forgot-page .container {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -16,6 +26,12 @@
     width: 300px;
     height: 200px;
     perspective: 1000px; /* Enables 3D effect */
+}
+
+.flip-card h3 {
+    color: var(--color-dark-brown);
+    font-weight: 700;
+    font-size: 26px;
 }
 
 .flip-card-inner {
@@ -79,7 +95,7 @@
 
 .forgot-page .flip-card-back,
 .flip-card-front {
-    padding: 50px 10px 0;
+    padding: 50px 30px 0;
 }
 
 .forgot-page .flip-card-back > *,
@@ -101,12 +117,15 @@
 .forgot-page form .input-field input {
     height: 50px;
     width: 43px;
-    border-radius: 13px;
+    border-radius: 5px;
     outline: none;
     font-size: 14px;
     text-align: center;
     border: 1px solid #ddd;
     transition: all 0.15s ease;
+    color: var(--color-dark-brown);
+    font-weight: 700;
+    font-size: 18px;
 }
 
 .forgot-page form .input-field input:focus {
@@ -128,11 +147,11 @@ input[type="number"]::-webkit-inner-spin-button {
     border: none;
     padding: 9px 0;
     cursor: pointer;
-    border-radius: 15px;
+    border-radius: 5px;
     pointer-events: none;
     background-color: var(--color-medium-brown);
     opacity: 0.5;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     user-select: none;
 }
 
@@ -144,19 +163,27 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .forgot-page .flip-card-back form button:hover,
 .flip-card-front form button:hover {
-    background-color: #7c655c; /* Slightly darker for hover */
+    background-color: var(--color-dark-brown-hover);
 }
 
 .forgot-page .flip-card-back a,
 .flip-card-front a {
     font-size: 14px;
     text-decoration: none;
-    color: #4faaf4;
+    color: var(--color-medium-brown);
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.forgot-page .flip-card-back a:hover,
+.flip-card-front a:hover {
+    color: var(--color-dark-brown);
 }
 
 .forgot-page form input[type="email"] {
-    width: 260px;
-    border-radius: 13px;
+    width: 100%;
+    border-radius: 5px;
     outline: none;
     font-size: 14px;
     border: 1px solid #ddd;

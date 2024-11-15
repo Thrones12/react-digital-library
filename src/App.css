@@ -8,16 +8,20 @@
     --color-off-white: #fafafa; /* Trắng ngà, làm nền chính */
     --color-pure-white: #ffffff; /* Trắng tinh, làm nền phụ hoặc chi tiết */
 
+    --color-dark-brown-hover: #7c655c; /* Nâu đậm, dùng cho header, footer */
+
     --text-color-1: blue;
     --text-color-2: #fff;
 
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --box-shadow-2: 0 14px 28px rgba(0, 0, 0, 0.3);
 }
 /* General */
 .wrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .container {

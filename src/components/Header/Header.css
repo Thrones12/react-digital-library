@@ -1,30 +1,26 @@
 header {
-    display: flex;
-    flex-direction: column;
-    background: var(--color-bg-1);
+    background: var(--color-light-brown);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 1000;
 }
 
+header .container {
+    display: flex;
+    align-items: center;
+}
+
+/* HEADER LOGO */
 .header-logo {
     display: flex;
     align-items: center;
     height: 100px;
 }
 
-.header-logo a {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    text-decoration: none;
-    font-size: 20px;
-    color: var(--text-color-1);
-}
-
 .header-logo img {
-    height: 80px;
+    height: 60px;
 }
 
+/* HEADER NAV */
 .header-nav {
     display: flex;
     flex-direction: row;
@@ -37,48 +33,67 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
-    margin: 0 20px;
+    height: 40px;
+    margin: 0 10px;
+    padding: 0 10px;
     text-align: center;
     text-decoration: none;
-    transition: all 0.15s ease;
+    transition: transform 0.15s ease;
+    color: var(--color-dark-brown);
+    font-weight: 500;
+    font-size: 18px;
 }
 
 .header-nav a:hover {
     transform: translate(0, -5px);
 }
 
-.header-nav a img {
-    margin: 0 auto;
+.header-nav a.active {
+    border: 1px solid var(--color-dark-brown);
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
 }
 
-.header-nav a p {
-    margin: 5px 0;
-}
-
+/* HEADER CONTROLS */
 .header-controls {
+    position: relative;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-}
-
-.header-login {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.header-controls a {
-    height: 40px;
-    margin: 0 5px;
-    transition: all 0.15s ease;
-}
-
-.header-controls a:hover {
     height: 50px;
 }
 
-.header-controls img {
-    height: 40px;
-    width: 40px;
+.header-login {
+    background-color: var(--color-medium-brown);
+    border: 1px solid var(--color-dark-brown);
+    color: var(--color-pure-white);
+    text-decoration: none;
+    position: relative;
+    padding: 12px 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.header-login p {
+    position: relative;
+    margin: 0;
+    z-index: 10;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.header-login-overlay {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: var(--color-dark-brown);
+    transition: width 0.3s ease-in-out;
+}
+
+.header-login:hover .header-login-overlay {
+    width: 100%;
 }
