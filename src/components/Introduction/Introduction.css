@@ -1,0 +1,69 @@
+.introduction-item {
+    margin: 20px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--color-medium-brown);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.introduction-item iframe {
+    width: 100%;
+    height: 200px;
+}
+
+.introduction-text {
+    padding: 15px;
+}
+
+.introduction-title {
+    text-align: left;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.introduction-description {
+    text-align: justify;
+    display: flex; /* Standard display option */
+    line-clamp: 6; /* Standard property */
+    box-orient: vertical; /* Fallback */
+    flex-direction: column; /* Standard property */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5em; /* Adjust line height as needed */
+    height: 9em; /* Adjust height based on line height and desired lines */
+    margin: 5px 0 10px;
+}
+
+.introduction-more {
+    padding: 20px 0;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid var(--color-medium-brown);
+}
+
+.introduction-more a {
+    text-decoration: none;
+    color: var(--color-dark-brown);
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    font-size: 18px;
+}
+
+.introduction-more a:hover {
+    transform: translate(0, -3px);
+}
+
+.introduction-btn-readmore button {
+    font-size: 20px;
+    margin-top: 40px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-medium-brown);
+    color: var(--color-off-white);
+    transition: all 0.2s ease;
+}
+
+.introduction-btn-readmore button:hover {
+    background-color: var(--color-dark-brown);
+}

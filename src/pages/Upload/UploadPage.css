@@ -1,3 +1,9 @@
+.section-upload {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: var(--color-off-white);
+}
+
 .upload-content {
     display: flex;
     flex-direction: row;
@@ -17,7 +23,7 @@
 }
 
 .upload-form input {
-    width: 43.5%;
+    width: 41%;
     padding: 8px 20px;
     border: 1px solid var(--color-light-brown);
     outline: none;
@@ -51,7 +57,7 @@ textarea:focus {
 }
 
 .file-upload {
-    width: calc(43.5% + 40px);
+    width: calc(41% + 40px);
     border: 1px solid var(--color-light-brown);
     outline: none;
     transition: all 0.3s ease;
@@ -68,9 +74,6 @@ textarea:focus {
 
 .custom-file-upload:hover {
     background-color: #7a5c54; /* Slightly darker for hover */
-}
-
-.file-upload input {
 }
 
 #file-name {

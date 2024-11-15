@@ -1,0 +1,123 @@
+.section-search {
+    background: url("/public/images/background-2.png");
+    text-align: center;
+    width: 100%;
+    height: 220px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    color: #ff6347;
+    padding-bottom: 30px;
+}
+
+.section-search-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+@keyframes faceInUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes title-top-load {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.page-title-top {
+    animation: title-top-load 1s ease-in-out;
+}
+
+.page-title {
+    animation: faceInUp 1.5s ease-in-out;
+}
+
+.search-bar {
+    animation: faceInUp 1.5s ease-in-out;
+}
+
+.page-title-text {
+    margin: 0;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+.section-search h6 {
+    color: var(--color-light-brown);
+    font-size: 26px;
+}
+
+.section-search h1 {
+    line-height: 1.2;
+    color: var(--color-pure-white);
+    font-size: 80px;
+    padding-bottom: 30px;
+}
+
+/* Search Bar */
+.section-search .search-bar {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 600px;
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+    position: absolute;
+    bottom: -30px;
+    z-index: 1000;
+}
+
+.section-search .search-bar input {
+    font-size: 16px;
+    flex: 1;
+    padding: 20px 30px;
+    border: 1px solid var(--color-light-brown);
+    background-color: var(--color-pure-white);
+    transition: all 0.3s ease-out;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    outline: none;
+}
+
+.section-search .search-bar input:hover {
+    border: 1px solid var(--color-medium-brown);
+}
+
+.section-search .search-bar input:focus {
+    border: 1px solid var(--color-medium-brown);
+}
+
+.section-search .search-bar input:hover {
+    background-color: var(--color-pure-white);
+}
+
+.section-search .search-bar button {
+    font-size: 16px;
+    padding: 20px 30px;
+    background-color: var(--color-medium-brown);
+    border: 1px solid var(--color-medium-brown);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.section-search .search-bar button:hover {
+    background-color: #7b5e4e;
+}

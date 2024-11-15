@@ -1,0 +1,6 @@
+.counter-section {
+    margin: 10px 0;
+    font-size: 30px;
+    color: var(--color-dark-brown);
+    font-weight: bold;
+}

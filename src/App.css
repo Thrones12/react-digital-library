@@ -5,7 +5,7 @@
     --color-medium-brown: #8d6e63; /* Nâu nhạt, cho thanh điều hướng hoặc nút */
     --color-light-brown: #d7ccc8; /* Nâu be, dùng cho thẻ hoặc card */
     --color-ivory-white: #f0e6d2; /* Trắng tinh, làm nền phụ hoặc chi tiết */
-    --color-off-white: #fafafa; /* Trắng ngà, làm nền chính */
+    --color-off-white: #f5f5f5; /* Trắng ngà, làm nền chính */
     --color-pure-white: #ffffff; /* Trắng tinh, làm nền phụ hoặc chi tiết */
 
     --color-dark-brown-hover: #7c655c; /* Nâu đậm, dùng cho header, footer */
@@ -16,6 +16,10 @@
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     --box-shadow-2: 0 14px 28px rgba(0, 0, 0, 0.3);
 }
+main {
+    background: var(--color-off-white);
+}
+
 /* General */
 .wrapper {
     width: 100%;

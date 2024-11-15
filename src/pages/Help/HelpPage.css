@@ -1,6 +1,9 @@
-.about-page > div {
-    padding: 0 10px;
+.section-help {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: var(--color-off-white);
 }
+
 .contact-form form {
     display: flex;
     flex-direction: row;

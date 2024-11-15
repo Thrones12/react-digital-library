@@ -1,14 +1,13 @@
 import React from "react";
+import PageTitle from "../../components/PageTitle/PageTitle";
+import "./RequestPage.css";
 
 const RequestPage = () => {
     return (
         <>
-            <div className='page-title'>
-                <div className='background-image'>
-                    <div className='container'>
-                        <h2>YÊU CẦU</h2>
-                    </div>
-                </div>
+            <PageTitle title={"Yêu cầu sách mới"} />
+            <div className='section-request'>
+                <div className='container'>Yêu cầu</div>
             </div>
         </>
     );

@@ -1,5 +1,8 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import ButtonToRight from "../ButtonToRight/ButtonToRight";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
 
 const Header = () => {
@@ -15,7 +18,15 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className='header-nav'>
-                    <div></div>
+                    <Link
+                        to='/home'
+                        className={
+                            pathDes === "home" || pathDes === "" ? "active" : ""
+                        }
+                    >
+                        <img src='/images/icon-home.png' alt='icon-home' />
+                        <p>Trang chủ</p>
+                    </Link>
                     <Link
                         to='/about'
                         className={pathDes === "about" ? "active" : ""}
@@ -48,10 +59,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className='header-controls'>
-                    <Link className='header-login' to='/auth/login'>
-                        <div className='header-login-overlay'></div>
-                        <p> Đăng nhập</p>
-                    </Link>
+                    <ButtonToRight link={"/auth/login"} text={"Đăng nhập"} />
                 </div>
             </div>
         </header>
