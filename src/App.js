@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { pdfjs } from "react-pdf";
+
 import "./App.css";
 import HomeLayout from "./layouts/User/Home/HomeLayout";
 import AuthLayout from "./layouts/User/Auth/AuthLayout";
@@ -16,6 +18,9 @@ import ForgotPage from "./pages/Auth/Forgot/ForgotPage";
 
 import LibraryPage from "./pages/Library/LibraryPage";
 import BookPage from "./pages/Book/BookPage";
+
+// Cấu hình đường dẫn worker
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 function App() {
     return (

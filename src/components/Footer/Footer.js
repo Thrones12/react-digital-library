@@ -12,18 +12,18 @@ const Footer = () => {
                     <p className='copy-right'>
                         Copyright © 2024 Thư viện kỹ thuật số - Phạm Hùng Phong
                     </p>
-                    <div class='socials'>
+                    <div className='socials'>
                         <Link
                             to='https://www.facebook.com/yourprofile'
                             target='_blank'
-                            class='social-icon facebook'
+                            className='social-icon facebook'
                         >
                             <FontAwesomeIcon icon={faFacebook} />
                         </Link>
                         <a
                             href='https://www.instagram.com/yourprofile'
                             target='_blank'
-                            class='social-icon instagram'
+                            className='social-icon instagram'
                         >
                             <FontAwesomeIcon icon={faInstagram} />
                         </a>

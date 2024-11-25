@@ -42,10 +42,7 @@ const AboutPage = () => {
                                 </h4>
                             </div>
                             <div className='col col-6'>
-                                <img
-                                    src='/images/about-img-1.png'
-                                    alt='about'
-                                />
+                                <img src='/images/about-us.png' alt='about' />
                             </div>
                         </div>
                         {/* WEB DATA SECTION */}

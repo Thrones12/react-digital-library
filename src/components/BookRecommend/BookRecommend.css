@@ -1,0 +1,47 @@
+.book-recommend-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.book-recommend-card {
+    width: 200px;
+    height: 60px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid var(--color-medium-brown);
+    border-radius: 5px;
+    margin: 10px 0;
+    transition: all 0.3s ease-out;
+}
+
+.book-recommend-card:hover {
+    box-shadow: var(--box-shadow);
+}
+
+.book-recommend-card img {
+    width: 45px;
+    height: 60px;
+}
+
+.book-recommend-title {
+    text-align: left;
+    flex: 1;
+    display: -webkit-box; /* Dùng Flexbox để hỗ trợ cắt dòng */
+    -webkit-box-orient: vertical; /* Hướng cắt dọc */
+    overflow: hidden; /* Ẩn phần văn bản bị tràn */
+    text-overflow: ellipsis; /* Thêm dấu "..." */
+    -webkit-line-clamp: 2; /* Giới hạn số dòng (ở đây là 2 dòng) */
+    line-clamp: 2;
+    margin: 0 2px;
+}
+
+.book-recommend-data {
+    color: var(--color-dark-brown);
+}
+
+.book-recommend-data p {
+    margin: 0;
+}

@@ -1,0 +1,167 @@
+.book-slider-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 1200px;
+}
+
+.slider-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.slider-header .slider-title {
+    margin: 0;
+    color: var(--color-dark-brown);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.slider-header a:visited,
+a:link {
+    color: var(--color-medium-brown);
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: all 0.3s ease-out;
+    position: relative;
+}
+
+.slider-header a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-medium-brown);
+    width: 0;
+    height: 1px;
+    transition: all 0.3s ease-out;
+}
+
+.slider-header a:hover::before {
+    width: 100%;
+}
+
+.book-image {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--color-dark-brown);
+}
+
+.book-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 50px;
+    color: var(--color-dark-brown);
+}
+
+.book-detail * {
+    margin: 10px 0;
+}
+
+.book-detail h1 {
+    font-size: 36px;
+}
+
+.book-detail span {
+    font-weight: 700;
+}
+.book-description {
+    text-align: justify;
+    display: -webkit-box; /* Dùng Flexbox để hỗ trợ cắt dòng */
+    -webkit-box-orient: vertical; /* Hướng cắt dọc */
+    overflow: hidden; /* Ẩn phần văn bản bị tràn */
+    text-overflow: ellipsis; /* Thêm dấu "..." */
+    -webkit-line-clamp: 4; /* Giới hạn số dòng (ở đây là 2 dòng) */
+    line-clamp: 4;
+}
+
+.btn-read {
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid var(--color-medium-brown);
+    background-color: var(--color-off-white);
+    color: var(--color-dark-brown);
+    transition: all 0.3s ease-out;
+}
+
+.btn-read:hover {
+    background-color: var(--color-medium-brown-hover);
+    color: var(--color-off-white);
+}
+
+.btn-download {
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid var(--color-medium-brown);
+    background-color: var(--color-medium-brown);
+    color: var(--color-off-white);
+    transition: all 0.3s ease-out;
+}
+
+.btn-download:hover {
+    background-color: var(--color-medium-brown-hover);
+}
+
+.recommend-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.top-book::before {
+    content: "";
+    width: 1px;
+    height: 70%;
+    background-color: var(--color-light-brown);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -50px;
+}
+
+.top-book {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-dark-brown);
+}
+
+.top-book-list {
+    margin-top: 15px;
+}
+
+.book-copyright {
+    background-color: var(--color-light-brown);
+    border: 1px solid var(--color-dark-brown);
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 40px;
+}
+
+.preview {
+    width: 100%;
+}
+
+.preview-title {
+    margin: 0;
+    color: var(--color-dark-brown);
+    font-size: 24px;
+    font-weight: 700;
+    text-align: left;
+}

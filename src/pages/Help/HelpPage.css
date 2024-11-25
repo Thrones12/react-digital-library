@@ -2,6 +2,33 @@
     padding-top: 100px;
     padding-bottom: 100px;
     background-color: var(--color-off-white);
+    text-align: justify;
+}
+
+.help-content {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+
+.section-help .col {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.section-help h1 {
+    color: var(--color-dark-brown);
+}
+
+.section-help h3 {
+    color: var(--color-medium-brown);
+}
+
+.section-help svg {
+    color: var(--color-dark-brown);
+    margin-right: 5px;
 }
 
 .contact-form form {
@@ -44,4 +71,36 @@ textarea:focus {
 .contact-form button:hover {
     color: #fff;
     background-color: var(--color-medium-brown);
+}
+
+.section-help .socials-media {
+    display: flex;
+    flex-direction: row;
+}
+
+.section-help .socials-media a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-medium-brown);
+    border-radius: 5px;
+    margin-right: 10px;
+    background: var(--color-off-white);
+    transition: all 0.3s ease-out;
+}
+
+.section-help .socials-media a:hover {
+    transform: scale(1);
+    background-color: var(--color-medium-brown);
+}
+
+.section-help .socials-media a:hover svg {
+    color: var(--color-pure-white);
+}
+
+.section-help .socials-media a svg {
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease-out;
 }

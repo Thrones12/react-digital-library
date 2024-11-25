@@ -1,7 +1,8 @@
 import React from "react";
+import SearchBar from "../SearchBar/SearchBar";
 import "./PageTitle.css";
 
-const PageTitle = ({ title }) => {
+const PageTitle = ({ title, hasSearchBar }) => {
     return (
         <div className='section-search'>
             <div className='section-search-overlay'></div>
@@ -11,13 +12,7 @@ const PageTitle = ({ title }) => {
             <div className='page-title'>
                 <h1 className='page-title-text'>{title}</h1>
             </div>
-            <div className='search-bar'>
-                <input
-                    type='text'
-                    placeholder='Tìm kiếm: sách, báo và tài liệu khác...'
-                />
-                <button>TÌM KIẾM</button>
-            </div>
+            {hasSearchBar ? <SearchBar /> : ""}
         </div>
     );
 };

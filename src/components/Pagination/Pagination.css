@@ -1,0 +1,38 @@
+/* AMIDN PAGINATION */
+.pagination {
+    display: flex;
+    justify-content: flex-start;
+    user-select: none;
+}
+
+.pagination .pag-btn {
+    margin: 0 5px;
+    outline: none;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--color-light-brown);
+    border: 1px solid var(--color-medium-brown);
+    color: var(--color-dark-brown);
+    font-size: 16px;
+}
+
+.pagination .pag-btn svg {
+    color: var(--color-dark-brown);
+}
+
+.pagination .pag-btn:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.pagination .pag-btn:hover:not(:disabled):not(.active) {
+    background-color: var(--color-light-brown);
+}
+
+.pagination .pag-btn.active {
+    background-color: var(--color-medium-brown);
+    color: var(--color-pure-white);
+}

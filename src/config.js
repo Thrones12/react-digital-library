@@ -6,6 +6,7 @@ const config = {
         link: "/introduction/1",
         youtubeLink: "https://www.youtube.com/embed/Mcc6QEhKBo4?start=371",
     },
+    LIMIT: 12,
 };
 
 export default config;

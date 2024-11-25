@@ -1,0 +1,41 @@
+.pdf-preview {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--color-dark-brown);
+    border-radius: 5px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.pdf-preview button {
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+.pdf-container {
+    max-height: 500px; /* Giới hạn chiều cao tương ứng A4 */
+    width: 100%; /* Tăng chiều rộng (tùy chỉnh theo nhu cầu) */
+    height: auto; /* Đảm bảo không ép chiều cao */
+    margin: 0 auto; /* Căn giữa container */
+    overflow-y: auto; /* Cuộn dọc nếu nội dung vượt quá chiều cao */
+    background-color: #f9f9f9; /* Tùy chọn: Màu nền */
+}
+
+.pdf-pagination {
+    margin: 10px;
+}
+
+.pdf-pagination p {
+    margin: 0 0 5px 0;
+}
+.react-pdf__Page {
+    margin: 0;
+    padding: 0;
+}
+
+.react-pdf__Page__canvas {
+    display: block;
+}

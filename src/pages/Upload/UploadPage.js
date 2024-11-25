@@ -23,6 +23,7 @@ const UploadPage = () => {
                         <div className='col col-6'>
                             <div className='thanks'>
                                 <h1>Lời Cảm Ơn</h1>
+                                <div className='seperator'></div>
                                 <p>
                                     Chúng tôi xin chân thành cảm ơn bạn đã gửi
                                     tài liệu quý báu đến{" "}
@@ -48,6 +49,7 @@ const UploadPage = () => {
                         <div className='col col-6'>
                             <div class='upload-form'>
                                 <h1>Biểu mẫu</h1>
+                                <div className='seperator'></div>
                                 <p>
                                     Sử dụng mẫu dưới đây để liên hệ với chúng
                                     tôi.

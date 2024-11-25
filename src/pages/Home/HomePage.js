@@ -28,7 +28,7 @@ const HomePage = () => {
 
     return (
         <main>
-            <PageTitle title={"Tri thức trong tầm tay"} />
+            <PageTitle title={"Tri thức trong tầm tay"} hasSearchBar={true} />
 
             {/* SKEW IMAGE SECTION */}
             <div className='section'>
