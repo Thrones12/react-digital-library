@@ -6,19 +6,19 @@ const Introduction = ({ object }) => {
     return (
         <div className='introduction-item'>
             <iframe
-                src={object.youtubeLink}
+                src={object.resource.path}
                 title='YouTube video player'
-                frameborder='0'
+                frameBorder='0'
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                allowfullscreen
+                allowFullScreen
             ></iframe>
             <div className='introduction-text'>
                 <div className='introduction-title'>{object.title}</div>
-                <div className='introduction-description'>
-                    {object.description}
-                </div>
+                <div className='introduction-description'>{object.content}</div>
                 <div className='introduction-more'>
-                    <Link to={object.link}>Chi tiết {">"}</Link>
+                    <Link to={`/introductions/${object._id}`}>
+                        Chi tiết {">"}
+                    </Link>
                 </div>
             </div>
         </div>

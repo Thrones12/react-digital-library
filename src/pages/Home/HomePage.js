@@ -1,19 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CounterSection from "../../components/Counter/CounterSection";
 import PageTitle from "../../components/PageTitle/PageTitle";
-import BookCard from "../../components/BookCard/BookCard";
+import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import ButtonToRight from "../../components/ButtonToRight/ButtonToRight";
 import Introduction from "../../components/Introduction/Introduction";
-import config from "../../config";
+import Config from "../../utils/Config";
+import BookController from "../../controllers/BookController";
+import CategoryController from "../../controllers/CategoryController";
+import IntroductionController from "../../controllers/IntroductionController";
 import "./HomePage.css";
 
 const HomePage = () => {
-    const [books, setBooks] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
-    const [recommends, setRecommends] = useState([1, 2, 3, 4, 5, 6]);
+    const API = Config.BASE_API_URL;
+    const [categories, setCategories] = useState([]);
+    const [books, setBooks] = useState([]);
+    const [recommends, setRecommends] = useState([]);
+    const [introductions, setIntroductions] = useState([]);
 
     const cateSettings = {
         dots: true,
@@ -25,6 +32,33 @@ const HomePage = () => {
         autoplaySpeed: 5000, // Thời gian tự động chuyển slide (ms)
         centerMode: false,
     };
+
+    //Fetch category
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await axios.get(`${API}/categories`);
+            setCategories(res.data.data);
+        };
+        fetchData();
+    }, []);
+
+    //Fetch books
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await axios.get(`${API}/books`);
+            setRecommends(BookController.GetTop6(res.data.data));
+        };
+        fetchData();
+    }, []);
+
+    //Fetch introduction
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await axios.get(`${API}/introductions`);
+            setIntroductions(IntroductionController.GetNew3(res.data.data));
+        };
+        fetchData();
+    }, []);
 
     return (
         <main>
@@ -81,14 +115,8 @@ const HomePage = () => {
                 </p>
                 <div className='category-slider'>
                     <Slider {...cateSettings}>
-                        {books.map((b) => (
-                            <BookCard
-                                link={`/book/${b}`}
-                                title={"Luân hồi lạc viên"}
-                                author={"Author"}
-                                cate={"Cate"}
-                                img={"/images/book-item.jpg"}
-                            />
+                        {categories.map((cate, index) => (
+                            <CategoryCard key={index} category={cate} />
                         ))}
                     </Slider>
                 </div>
@@ -104,22 +132,19 @@ const HomePage = () => {
                     thuyết đến khoa học và lịch sử.
                 </p>
                 <div className='recommend'>
-                    {recommends.map((r) => (
-                        <Link to='/book/1'>
+                    {recommends.map((r, index) => (
+                        <Link key={index} to={`/book/${r._id}`}>
                             <div className='recommend-item'>
-                                <img src='/images/book-item.jpg' alt='book' />
+                                <img
+                                    src={r.DescriptiveMetadata.picture}
+                                    alt='book'
+                                />
                                 <div className='recommend-text'>
                                     <h5 className='recommend-item-title'>
-                                        Luân hồi lạc viên
+                                        {r.DescriptiveMetadata.title}
                                     </h5>
                                     <p className='recommend-item-description'>
-                                        Đây là một đoạn văn bản dài sẽ bị giới
-                                        hạn bởi chiều cao cố định của thẻ. Khi
-                                        nội dung vượt quá số dòng quy định, dấu
-                                        "..." sẽ xuất hiện tự động. Bạn có thể
-                                        tiếp tục thêm văn bản ở đây để kiểm tra
-                                        xem đoạn văn bản có bị giới hạn đúng
-                                        không.
+                                        {r.DescriptiveMetadata.description}
                                     </p>
                                     <div className='recommend-item-readmore'>
                                         <p>Xem thêm</p>
@@ -143,9 +168,9 @@ const HomePage = () => {
                 </p>
                 <div className='container '>
                     <div className='book-introduction'>
-                        <Introduction object={config.introductionObject} />
-                        <Introduction object={config.introductionObject} />
-                        <Introduction object={config.introductionObject} />
+                        {introductions.map((i, index) => (
+                            <Introduction key={index} object={i} />
+                        ))}
                     </div>
                 </div>
                 <ButtonToRight link={"/introductions"} text={"Xem thêm"} />

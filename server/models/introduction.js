@@ -4,6 +4,7 @@ const shema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
+        unique: true,
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,
@@ -15,9 +16,14 @@ const shema = new mongoose.Schema({
         default: Date.now,
     },
     resource: {
-        type: String,
-        enum: ["Link", "Source"],
-        path: String,
+        type: {
+            type: String,
+            enum: ["Link", "Source"],
+            default: "Link",
+        },
+        path: {
+            type: String,
+        },
     },
     content: {
         type: String,

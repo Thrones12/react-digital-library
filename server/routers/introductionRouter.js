@@ -2,10 +2,10 @@ let express = require("express");
 let router = express.Router();
 let introductionController = require("../controllers/introductionController");
 
-router.get("/", introductionController.getIntroduction);
-router.get("/:id", introductionController.getIntroductionById);
-router.post("/", introductionController.postIntroduction);
-router.put("/:id", introductionController.putIntroduction);
-router.delete("/:id", introductionController.deleteIntroduction);
+router.get("/", introductionController.GetAll);
+router.get("/:id", introductionController.GetByID);
+router.post("/", introductionController.Create);
+router.put("/:id", introductionController.Update);
+router.delete("/:id", introductionController.Delete);
 
 module.exports = router;

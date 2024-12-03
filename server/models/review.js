@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const shema = new mongoose.Schema({
+const schema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
@@ -12,6 +12,10 @@ const shema = new mongoose.Schema({
         required: true,
     },
     createdAt: {
+        type: Date,
+        default: Date.now,
+    },
+    updatedAt: {
         type: Date,
         default: Date.now,
     },
@@ -28,6 +32,6 @@ const shema = new mongoose.Schema({
     },
 });
 
-const Review = mongoose.model("Review", shema);
+const Review = mongoose.model("Review", schema);
 
 module.exports = Review;

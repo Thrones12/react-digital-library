@@ -1,21 +1,60 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import CustomBreadcrumb from "../../components/CustomBreadcrumb/CustomBreadcrumb";
+import Config from "../../utils/Config";
+import NotiUtils from "../../utils/NotiUtils";
 import "./UploadPage.css";
 
 const UploadPage = () => {
-    const [fileName, setFileName] = useState("Chưa có tệp nào được chọn");
+    const API = `${Config.BASE_API_URL}/uploads`;
+    const [file, setFile] = useState(null);
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         if (file) {
-            setFileName(file.name);
+            setFile(file);
         } else {
-            setFileName("Chưa có tệp nào được chọn");
+            setFile("Chưa có tệp nào được chọn");
         }
     };
+
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            email: "",
+            phone: "",
+        },
+        validateOnChange: Yup.object({
+            name: Yup.string().required(),
+            email: Yup.string().required(),
+        }),
+        onSubmit: async (values, { resetForm }) => {
+            try {
+                const formData = new FormData();
+                formData.append("name", values.name);
+                formData.append("email", values.email);
+                formData.append("phone", values.phone);
+                formData.append("file", file);
+
+                const res = await axios.post(`${API}`, formData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data", // Đặt Content-Type
+                    },
+                });
+                NotiUtils.success("Gửi tài liệu thành công");
+                resetForm();
+            } catch (err) {
+                NotiUtils.error("Gửi tài liệu thất bại");
+            }
+        },
+    });
     return (
         <>
             <PageTitle title={"Gửi tặng tài liệu"} />
+            <CustomBreadcrumb />
 
             <div className='section-upload'>
                 <div className='container'>
@@ -54,26 +93,29 @@ const UploadPage = () => {
                                     Sử dụng mẫu dưới đây để liên hệ với chúng
                                     tôi.
                                 </p>
-                                <form>
+                                <form onSubmit={formik.handleSubmit}>
                                     <input
                                         type='text'
                                         id='name'
                                         name='name'
-                                        placeholder='Tên người gửi'
+                                        placeholder='Tên người gửi *'
                                         required
+                                        {...formik.getFieldProps("name")}
                                     />
                                     <input
                                         type='email'
                                         id='email'
                                         name='email'
-                                        placeholder='Email'
+                                        placeholder='Email liên hệ *'
                                         required
+                                        {...formik.getFieldProps("email")}
                                     />
                                     <input
                                         type='text'
                                         id='phone'
                                         name='phone'
                                         placeholder='Số điện thoại'
+                                        {...formik.getFieldProps("phone")}
                                     />
 
                                     <div className='file-upload'>
@@ -89,8 +131,13 @@ const UploadPage = () => {
                                             name='file-input'
                                             onChange={handleFileChange}
                                             style={{ display: "none" }} // Ẩn input file
+                                            required
                                         />
-                                        <span id='file-name'>{fileName}</span>
+                                        <span id='file-name'>
+                                            {file
+                                                ? file.name
+                                                : "Chưa có tệp nào"}
+                                        </span>
                                     </div>
 
                                     <textarea

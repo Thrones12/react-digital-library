@@ -1,0 +1,141 @@
+.section-profile {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: var(--color-off-white);
+    text-align: justify;
+}
+
+.profile-aside {
+    background-color: var(--color-light-brown);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-medium-brown);
+}
+
+.profile-aside .profile-aside-header {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-dark-brown);
+    position: relative;
+}
+.profile-aside .profile-aside-header::before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: var(--color-medium-brown);
+}
+
+.profile-aside .profile-aside-item {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.profile-aside-item a {
+    padding: 5px 0;
+}
+
+.profile-aside-item a:visited,
+a:link {
+    color: var(--color-dark-brown);
+}
+.profile-aside a.active {
+    font-weight: 600;
+}
+.profile-aside a::before,
+a.active::before {
+    content: "";
+    height: 1px;
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    background-color: var(--color-dark-brown);
+    transition: all 0.3s ease-out;
+}
+
+.profile-aside a::before {
+    width: 0;
+}
+
+.profile-aside a:hover::before {
+    width: 100%;
+}
+
+.profile-aside a.active::before {
+    width: 100%;
+    height: 2px !important;
+}
+
+.profile-main {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+/* PROFILE CONTAINER */
+
+.profile-container {
+    border: 1px solid var(--color-dark-brown);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: var(--color-pure-white);
+    position: relative;
+}
+
+.profile-container h1 {
+    font-size: 24px;
+}
+
+.profile-container form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.profile-container input {
+    width: 90%;
+    padding: 8px 20px;
+    border: 1px solid var(--color-light-brown);
+    outline: none;
+    transition: all 0.3s ease;
+}
+.profile-container input:focus,
+textarea:focus {
+    border: 1px solid var(--color-medium-brown);
+}
+
+.profile-container button {
+    border: 1px solid var(--color-medium-brown);
+    color: var(--color-medium-brown);
+    background-color: #fff;
+    padding: 10px 15px;
+    transition: all 0.4s ease;
+}
+
+.profile-container button:hover {
+    color: #fff;
+    background-color: var(--color-medium-brown);
+}
+
+.profile-container form img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid var(--color-medium-brown);
+    cursor: pointer;
+}
+
+.profile-container svg {
+    border: none !important;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: 100;
+    color: var(--color-dark-brown);
+}

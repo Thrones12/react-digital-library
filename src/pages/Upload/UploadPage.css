@@ -90,6 +90,12 @@ textarea:focus {
     transition: all 0.4s ease;
     padding: 8px 10px;
     overflow: hidden;
+    font: -webkit-small-control;
+    color: #757575; /* Màu chữ */
+    background-color: #fff; /* Màu nền */
+    appearance: auto; /* Phong cách mặc định của trình duyệt */
+    display: flex;
+    align-items: center;
 }
 
 .upload-content .thanks p {

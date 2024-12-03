@@ -1,0 +1,21 @@
+[
+    {
+        "user": {
+            "$oid": "6746d781b869094f90eef593"
+        },
+        "title": "Đi tìm lẽ sống",
+        "author": " Viktor Frankl",
+        "category": {
+            "$oid": "674754e0f7c864ab888a1338"
+        },
+        "publisher": "NXB Tổng Hợp TPHCM",
+        "publicationYear": "2019",
+        "status": "Pending",
+        "createdAt": {
+            "$date": "2024-11-27T15:34:59.250Z"
+        },
+        "updatedAt": {
+            "$date": "2024-11-27T15:34:59.250Z"
+        }
+    }
+]

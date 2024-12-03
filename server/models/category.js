@@ -7,6 +7,15 @@ const shema = new mongoose.Schema({
         unique: true,
         trim: true,
     },
+    picture: {
+        type: String,
+        required: true,
+        default: "/images/categories/default.jpg",
+    },
+    download: {
+        type: Number,
+        default: 0,
+    },
 });
 
 const Category = mongoose.model("Category", shema);

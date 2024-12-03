@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ButtonToRight from "../ButtonToRight/ButtonToRight";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,8 +6,18 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
 
 const Header = () => {
+    const [user, setUser] = useState(null);
     const location = useLocation();
     const pathDes = location.pathname.split("/").pop();
+
+    useEffect(() => {
+        try {
+            const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+            if (userInfo.expiryTime - Date.now() > 0) {
+                setUser(userInfo.data);
+            }
+        } catch (err) {}
+    }, []);
 
     return (
         <header>
@@ -59,7 +69,20 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className='header-controls'>
-                    <ButtonToRight link={"/auth/login"} text={"Đăng nhập"} />
+                    {user ? (
+                        <>
+                            <div className='account-control'>
+                                <Link to='/profile'>
+                                    <img src={user.profilePicture} alt='user' />
+                                </Link>
+                            </div>
+                        </>
+                    ) : (
+                        <ButtonToRight
+                            link={"/auth/login"}
+                            text={"Đăng nhập"}
+                        />
+                    )}
                 </div>
             </div>
         </header>

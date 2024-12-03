@@ -8,72 +8,24 @@ import "./SortDropdown.css";
 
 const SortDropdown = ({
     standards,
-    filters,
-    setFilters,
-    data,
-    setValidData,
+    sortFunction,
+    selected,
+    setSelected,
+    isAscending,
+    setIsAscending,
 }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selected, setSelected] = useState({
-        name: "Sắp xếp",
-        type: "All",
-    });
-    const [isAscending, setIsAscending] = useState(true);
-
-    useEffect(() => {
-        // if (filters.some((f) => f.isOpen === true)) {
-        //     setIsOpen(false);
-        // }
-    }, [filters]);
 
     const handleSortOrder = () => {
         setIsAscending(!isAscending);
-        sort(data, selected.type, !isAscending);
+        sortFunction(selected.type, !isAscending);
     };
 
-    const handleSort = (standard) => {
-        setSelected(standard);
+    const handleSort = (s) => {
+        setSelected(s);
         setIsOpen(false);
 
-        sort(data, standard.type, isAscending);
-    };
-
-    const sort = (data, sortBy, isAscending) => {
-        // Tạo bản sao của data để tránh thay đổi trực tiếp
-        const sortedData = [...data];
-
-        standards.forEach((s) => {
-            if (s.type === sortBy) {
-                sortedData.sort((a, b) => {
-                    const aValue = a[sortBy];
-                    const bValue = b[sortBy];
-
-                    if (
-                        typeof aValue === "string" &&
-                        typeof bValue === "string"
-                    ) {
-                        return isAscending
-                            ? aValue.localeCompare(bValue)
-                            : bValue.localeCompare(aValue);
-                    }
-
-                    if (
-                        sortBy === "dateOfBirth" ||
-                        sortBy === "createdAt" ||
-                        sortBy === "updatedAt"
-                    ) {
-                        return isAscending
-                            ? new Date(aValue) - new Date(bValue)
-                            : new Date(bValue) - new Date(aValue);
-                    }
-
-                    return isAscending ? aValue - bValue : bValue - aValue;
-                });
-
-                // Cập nhật lại state với mảng đã sắp xếp
-                setValidData(sortedData);
-            }
-        });
+        sortFunction(s.type, isAscending);
     };
 
     return (
@@ -84,9 +36,6 @@ const SortDropdown = ({
                     className={`dropdown-selected ${isOpen ? "active" : ""}`}
                     onClick={() => {
                         setIsOpen(!isOpen);
-                        // setFilters(
-                        //     filters.map((f) => ({ ...f, isOpen: false }))
-                        // );
                     }}
                 >
                     {selected.name}

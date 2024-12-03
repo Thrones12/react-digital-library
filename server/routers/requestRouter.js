@@ -2,10 +2,11 @@ let express = require("express");
 let router = express.Router();
 let requestController = require("../controllers/requestController");
 
-router.get("/", requestController.getRequest);
-router.get("/:id", requestController.getRequestById);
-router.post("/", requestController.postRequest);
-router.put("/:id", requestController.putRequest);
-router.delete("/:id", requestController.deleteRequest);
+router.get("/", requestController.GetAll);
+router.get("/:id", requestController.GetByID);
+router.get("/getByUser/:user", requestController.GetByUser);
+router.post("/", requestController.Create);
+router.put("/:id", requestController.Update);
+router.delete("/:id", requestController.Delete);
 
 module.exports = router;

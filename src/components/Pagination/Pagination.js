@@ -1,5 +1,5 @@
 import React, { useState, useEffect, memo } from "react";
-import config from "../../config";
+import Config from "../../utils/Config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faChevronRight,
@@ -7,13 +7,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./Pagination.css";
 
-const Pagination = ({ data, setPageData, scrollRef }) => {
+const Pagination = ({ data, setPageData, scrollRef, isIntro }) => {
     const [page, setPage] = useState(1);
     const [pageRange, setPageRange] = useState([]);
-    const [pageTotal, setPageTotal] = useState(0);
+    const [pageTotal, setPageTotal] = useState(1);
+    const LIMIT = isIntro ? Config.INTRO_LIMIT : Config.LIMIT;
 
     useEffect(() => {
-        const pageTotal = Math.ceil(data.length / config.LIMIT);
+        const pageTotal = Math.ceil(data.length / LIMIT);
+
         setPageTotal(pageTotal);
 
         if (page >= 1 && page <= 3) {
@@ -28,8 +30,8 @@ const Pagination = ({ data, setPageData, scrollRef }) => {
             setPageRange([page - 2, page - 1, page, page + 1, page + 2]);
         }
         setPage(1);
-        setPageData(data.slice(0, config.LIMIT));
-    }, []);
+        setPageData(data.slice(0, LIMIT));
+    }, [data]);
 
     useEffect(() => {
         // Cuộn đến phần tử cụ thể
@@ -40,8 +42,8 @@ const Pagination = ({ data, setPageData, scrollRef }) => {
 
     const handlePageChange = (page) => {
         setPage(page);
-        const startIndex = (page - 1) * config.LIMIT;
-        const endIndex = startIndex + config.LIMIT;
+        const startIndex = (page - 1) * LIMIT;
+        const endIndex = startIndex + LIMIT;
 
         setPageData(data.slice(startIndex, endIndex));
     };
@@ -70,7 +72,7 @@ const Pagination = ({ data, setPageData, scrollRef }) => {
                 </button>
             ))}
             <button
-                disabled={page === pageTotal}
+                disabled={pageTotal === 1}
                 className='pag-btn'
                 onClick={() => {
                     handlePageChange(page + 1);

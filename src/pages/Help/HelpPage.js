@@ -1,6 +1,12 @@
 import React from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import CustomBreadcrumb from "../../components/CustomBreadcrumb/CustomBreadcrumb";
+import Config from "../../utils/Config";
+import NotiUtils from "../../utils/NotiUtils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faMapMarkerAlt,
@@ -11,9 +17,42 @@ import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import "./HelpPage.css";
 
 const HelpPage = () => {
+    const API = `${Config.BASE_API_URL}/supports`;
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+        },
+        validateOnChange: Yup.object({
+            name: Yup.string().required(),
+            email: Yup.string().required(),
+            subject: Yup.string().required(),
+            message: Yup.string().required(),
+        }),
+        onSubmit: async (values, { resetForm }) => {
+            try {
+                const res = await axios.post(`${API}`, {
+                    name: values.name,
+                    email: values.email,
+                    phone: values.phone,
+                    subject: values.subject,
+                    message: values.message,
+                });
+                NotiUtils.success("Gửi tin nhắn thành công");
+                resetForm();
+            } catch (err) {
+                NotiUtils.error("Gửi tin nhắn thất bại");
+            }
+        },
+    });
+
     return (
         <>
             <PageTitle title={"Luôn sẵn sàng hỗ trợ"} />
+            <CustomBreadcrumb />
 
             <div className='section-help'>
                 <div className='container'>
@@ -65,28 +104,30 @@ const HelpPage = () => {
                             </div>
                         </div>
                         <div className='col col-6'>
-                            <div class='contact-form'>
+                            <div className='contact-form'>
                                 <h1>Bạn có thắc mắc nào không?</h1>
                                 <div className='seperator'></div>
                                 <p>
                                     Sử dụng mẫu dưới đây để liên hệ với chúng
                                     tôi.
                                 </p>
-                                <form>
+                                <form onSubmit={formik.handleSubmit}>
                                     <input
                                         type='text'
                                         id='name'
                                         name='name'
-                                        placeholder='Tên người gửi'
+                                        placeholder='Tên người gửi *'
                                         required
+                                        {...formik.getFieldProps("name")}
                                     />
 
                                     <input
                                         type='email'
                                         id='email'
                                         name='email'
-                                        placeholder='Email'
+                                        placeholder='Email liên hệ *'
                                         required
+                                        {...formik.getFieldProps("email")}
                                     />
 
                                     <input
@@ -94,21 +135,25 @@ const HelpPage = () => {
                                         id='phone'
                                         name='phone'
                                         placeholder='Số điện thoại'
+                                        {...formik.getFieldProps("phone")}
                                     />
 
                                     <input
                                         type='text'
                                         id='subject'
                                         name='subject'
-                                        placeholder='Tiêu đề'
+                                        placeholder='Tiêu đề *'
+                                        required
+                                        {...formik.getFieldProps("subject")}
                                     />
 
                                     <textarea
                                         rows={10}
                                         id='message'
                                         name='message'
-                                        placeholder='Tin nhắn'
+                                        placeholder='Tin nhắn *'
                                         required
+                                        {...formik.getFieldProps("message")}
                                     ></textarea>
 
                                     <button type='submit'>Gửi tin nhắn </button>

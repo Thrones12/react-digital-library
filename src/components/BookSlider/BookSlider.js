@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 import BookCard from "../BookCard/BookCard";
 import "./BookSlider.css";
 
-const BookSlider = ({ books }) => {
+const BookSlider = ({ books, scrollRef }) => {
     const settings = {
         dots: true,
         infinite: true,
         speed: 1000,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true, // Bật tính năng tự động chuyển slide
         autoplaySpeed: 4000, // Thời gian tự động chuyển slide (ms)
@@ -20,14 +20,8 @@ const BookSlider = ({ books }) => {
     return (
         <div className='book-slider'>
             <Slider {...settings}>
-                {books.map((b) => (
-                    <BookCard
-                        link={`/book/${b}`}
-                        title={"Luân hồi lạc viên"}
-                        author={"Author"}
-                        cate={"Cate"}
-                        img={"/images/book-item.jpg"}
-                    />
+                {books.map((b, index) => (
+                    <BookCard key={index} data={b} scrollRef={scrollRef} />
                 ))}
             </Slider>
         </div>

@@ -11,7 +11,7 @@ const shema = new mongoose.Schema({
         ref: "Book",
         required: true,
     },
-    createdAt: {
+    downloadAt: {
         type: Date,
         default: Date.now,
     },

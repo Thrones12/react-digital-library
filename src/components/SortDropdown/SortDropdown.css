@@ -33,7 +33,7 @@
     top: calc(100% + 5px);
     left: 0;
     background: var(--color-pure-white);
-    z-index: 100;
+    z-index: 1000;
     width: calc(100% - 5px);
     color: var(--color-medium-brown);
     border: 1px solid var(--color-medium-brown);

@@ -2,15 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./BookCard.css";
 
-const BookCard = ({ link, title, author, cate, img }) => {
+// With: Link, height: card-img
+const BookCard = ({ data, cardWith, cardHeight }) => {
     return (
-        <Link to={link} className='book-card-link'>
+        <Link
+            to={`/book/${data._id}`}
+            className='book-card-link'
+            style={{ width: cardWith ? cardWith : "" }}
+        >
             <div className='book-card'>
-                <img className='card-img' src={img} alt='book' />
-                <div className='card-title'>{title}</div>
-                <div className='card-footer'>
-                    <div className='card-author'>{author}</div>
-                    <div className='card-cate'>{cate}</div>
+                <img
+                    className='card-img'
+                    style={{ height: cardHeight ? cardHeight : "" }}
+                    src={data.DescriptiveMetadata.picture}
+                    alt='book'
+                />
+                <div className='card-title'>
+                    {data.DescriptiveMetadata.title}
                 </div>
             </div>
         </Link>

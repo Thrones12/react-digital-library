@@ -1,106 +1,277 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import BookSlider from "../../components/BookSlider/BookSlider";
 import BookRecommend from "../../components/BookRecommend/BookRecommend";
 import PDFPreview from "../../components/PDFPreview/PDFPreview";
+import CustomBreadcrumb from "../../components/CustomBreadcrumb/CustomBreadcrumb";
+import BookController from "../../controllers/BookController";
+import Config from "../../utils/Config";
+import NotiUtils from "../../utils/NotiUtils";
 import "./BookPage.css";
 
 const BookPage = () => {
+    const BOOK_API = `${Config.BASE_API_URL}/books`;
+    const HIS_API = `${Config.BASE_API_URL}/histories`;
+    const AUTH_API = `${Config.BASE_API_URL}/auth`;
+    const USER_API = `${Config.BASE_API_URL}/users`;
     const { id } = useParams();
-    const [books, setBooks] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
-    const [isAvailable, setIsAvailable] = useState(true);
-    const [hasPrivilege, setHasPrivilege] = useState(true);
+    const [user, setUser] = useState(null);
+    const [book, setBook] = useState(null);
+    const [isDescriptionExpand, setIsDescriptionExpand] = useState(false);
+    const [recommends, setRecommends] = useState([]);
+    const [suggests, setSuggests] = useState([]);
+    const pageRef = useRef(null);
 
+    // Fetch user
+    useEffect(() => {
+        try {
+            const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+            if (userInfo.expiryTime - Date.now() > 0) {
+                setUser(userInfo.data);
+            }
+        } catch (err) {}
+    }, []);
+
+    // Fetch book
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get(`${BOOK_API}/${id}`);
+
+                setBook(res.data.data);
+
+                const category =
+                    res.data.data.DescriptiveMetadata.category.name;
+                const author = res.data.data.DescriptiveMetadata.author;
+
+                const allBook = await axios.get(`${BOOK_API}`);
+                setSuggests(
+                    BookController.GetTop10Suggest(
+                        allBook.data.data,
+                        category,
+                        author
+                    )
+                );
+
+                setIsDescriptionExpand(false);
+                if (pageRef.current) {
+                    pageRef.current.scrollIntoView({ behavior: "smooth" });
+                }
+            } catch (err) {
+                NotiUtils.error("Tải tài liệu thất bại");
+            }
+        };
+        fetchData();
+    }, [id]);
+
+    //Fetch more documents
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await axios.get(`${BOOK_API}`);
+            setRecommends(BookController.GetTop6(res.data.data));
+        };
+        fetchData();
+    }, [book, id]);
+    const handleDownload = async (e, filePath, book_id) => {
+        e.preventDefault(); // Prevent default behavior of the link
+
+        if (!filePath) {
+            console.error("No file path provided");
+            return;
+        }
+        const link = document.createElement("a");
+        link.href = filePath; // File path or API endpoint
+        link.download = filePath.split("/").pop(); // Extract file name for download
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        try {
+            const hisRes = await axios.post(HIS_API, {
+                user: user._id,
+                book: book_id,
+            });
+            user.downloadHistory.push(hisRes.data.data);
+            const resUser = await axios.put(USER_API, user);
+
+            // Lưu thông tin user vào localStorage
+            const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+            const tempTime = userInfo.expiryTime;
+            localStorage.setItem(
+                "userInfo",
+                JSON.stringify({
+                    data: resUser.data.data,
+                    expiryTime: tempTime,
+                })
+            );
+
+            setUser(resUser.data.data);
+        } catch (err) {}
+    };
     return (
         <>
             <PageTitle title={"Tri thức trong tầm tay"} />
 
+            <CustomBreadcrumb />
             {/* Thông Tin Tài Liệu */}
-            <div className='section'>
+            <div className='section' ref={pageRef}>
                 <div className='container'>
                     <div className='col col-4'>
                         <img
                             className='book-image'
-                            src='/images/book-item.jpg'
+                            src={book ? book.DescriptiveMetadata.picture : ""}
                             alt='book'
                         />
                     </div>
                     <div className='col col-5'>
                         <div className='book-detail'>
-                            <h1>Luân hồi lạc viên</h1>
+                            <h1>
+                                {book ? book.DescriptiveMetadata.title : ""}
+                            </h1>
                             <p>
-                                <span>Tác giả: </span>Phạm Hùng Phong
+                                <span>Tác giả: </span>
+                                {book ? book.DescriptiveMetadata.author : ""}
                             </p>
                             <p>
-                                <span>Thể loại: </span>Cate
+                                <span>Xuất bản: </span>
+                                {book
+                                    ? book.DescriptiveMetadata.publisher +
+                                      ", năm " +
+                                      book.DescriptiveMetadata.publicationYear
+                                    : ""}
+                            </p>
+                            <p>
+                                <span>Thể loại: </span>
+                                {book
+                                    ? book.DescriptiveMetadata.category.name
+                                    : ""}
                             </p>
                             <p>
                                 <span>Tình trạng: </span>
+                                {book
+                                    ? book.AdministrativeMetadata.isAvailable
+                                        ? "Có thể tải"
+                                        : "Tạm ngưng"
+                                    : ""}
                             </p>
                             <p>
                                 <span>Loại tài liệu: </span>
+                                {book
+                                    ? book.AdministrativeMetadata.format +
+                                      ", " +
+                                      book.AdministrativeMetadata.size
+                                    : ""}
                             </p>
-                            <p className='book-description'>
-                                <span>Mô tả: </span>Đây là một đoạn văn bản dài
-                                sẽ bị giới hạn bởi chiều cao cố định của thẻ.
-                                Khi nội dung vượt quá số dòng quy định, dấu
-                                "..." sẽ xuất hiện tự động. Bạn có thể tiếp tục
-                                thêm văn bản ở thêm văn bản ở đây để kiểm tra
-                                xem đoạn văn bản có bị giới hạn đúng không. Mô
-                                tả: Đây là một đoạn văn bản dài sẽ bị giới hạn
-                                bởi chiều cao cố định của thẻ. Khi nội dung vượt
-                                quá số dòng quy định, dấu "..." sẽ xuất hiện tự
-                                động. Bạn có thể đúng không. hiện tự động. Bạn
-                                có thể tiếp tục thêm văn bản ở đây để kiểm tra
-                                xem đoạn văn bản có bị giới hạn đúng không. Mô
-                                bản ở đây để kiểm tra xem đoạn văn bản có bị
-                                giới hạn đúng không.
-                            </p>
-                            <p>
-                                <span>Bản quyền: </span> Thư viện số
-                            </p>
-                            <p>
-                                <span>Nguồn gốc: </span> Thư viện số
-                            </p>
-                            <p>
-                                <span>Lượt tải: </span>135
-                            </p>
-                            <div
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "row",
-                                    gap: "20px",
-                                }}
-                            >
-                                {isAvailable ? (
-                                    <>
-                                        <button className='btn-read'>
-                                            Đọc
-                                        </button>
-                                        {hasPrivilege ? (
-                                            <button className='btn-download'>
-                                                Tải xuống
-                                            </button>
-                                        ) : (
-                                            <button className='btn-download'>
-                                                Yêu cầu
-                                            </button>
-                                        )}
-                                    </>
-                                ) : null}
+                            <div className='book-description-container'>
+                                <p
+                                    className={`book-description ${
+                                        isDescriptionExpand ? "expanded" : ""
+                                    }`}
+                                >
+                                    <span>Mô tả: </span>
+                                    {book
+                                        ? book.DescriptiveMetadata.description
+                                        : ""}
+                                </p>
+                                <button
+                                    id='toggleDescription'
+                                    onClick={() =>
+                                        setIsDescriptionExpand(
+                                            !isDescriptionExpand
+                                        )
+                                    }
+                                >
+                                    {isDescriptionExpand
+                                        ? "<< Thu gọn >>"
+                                        : "<< Xem thêm >>"}
+                                </button>
                             </div>
+                            <p>
+                                <span>Bản quyền: </span>
+                                {book
+                                    ? book.AdministrativeMetadata.copyright
+                                    : ""}
+                            </p>
+                            <p>
+                                <span>Nguồn gốc: </span>
+                                {book ? book.AdministrativeMetadata.source : ""}
+                            </p>
+                            <p>
+                                <span>Lượt tải: </span>
+                                {book
+                                    ? book.AdministrativeMetadata.download
+                                    : ""}
+                            </p>
+                            {user ? (
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        gap: "20px",
+                                    }}
+                                >
+                                    {book &&
+                                    book.AdministrativeMetadata.isAvailable ? (
+                                        <>
+                                            <button className='btn-read'>
+                                                Theo dõi
+                                            </button>
+                                            {book.AdministrativeMetadata
+                                                .hasPrivilege ===
+                                            user.privilege ? (
+                                                // <button
+                                                //     className='btn-download'
+                                                //     onClick={() => {
+                                                //         const link =
+                                                //             document.createElement(
+                                                //                 "a"
+                                                //             );
+                                                //         link.href = `${book.files}`; // Đường dẫn tới file trong thư mục public
+                                                //         link.download = `${book.files
+                                                //             .split("/")
+                                                //             .pop()}`; // Tên file khi tải xuống
+                                                //         link.click();
+                                                //     }}
+                                                // >
+                                                //     Tải xuống
+                                                // </button>
+                                                <button
+                                                    className='btn-download'
+                                                    onClick={(e) =>
+                                                        handleDownload(
+                                                            e,
+                                                            book.files,
+                                                            book._id
+                                                        )
+                                                    }
+                                                >
+                                                    Tải xuống
+                                                </button>
+                                            ) : (
+                                                <button className='btn-download'>
+                                                    Yêu cầu
+                                                </button>
+                                            )}
+                                        </>
+                                    ) : null}
+                                </div>
+                            ) : (
+                                <p>
+                                    <span>Lưu ý: </span>
+                                    {"Bạn cần đăng nhập để tải tài liệu"}
+                                </p>
+                            )}
                         </div>
                     </div>
                     <div className='recommend-col col col-3'>
                         <div className='top-book'>
                             Tài liệu nổi bật
                             <div className='top-book-list'>
-                                <BookRecommend />
-                                <BookRecommend />
-                                <BookRecommend />
-                                <BookRecommend />
-                                <BookRecommend />
+                                {recommends.map((re, index) => (
+                                    <BookRecommend key={index} data={re} />
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -113,15 +284,17 @@ const BookPage = () => {
                 </div>
             </div>
 
-            {/* Mô tả */}
-            <div className='section' style={{ paddingTop: "40px" }}>
-                <div className='container'>
-                    <div className='preview'>
-                        <p className='preview-title'>Xem trước</p>
-                        <PDFPreview />
+            {/* Xem trước */}
+            {book ? (
+                <div className='section' style={{ paddingTop: "40px" }}>
+                    <div className='container'>
+                        <div className='preview'>
+                            <p className='preview-title'>Xem trước</p>
+                            <PDFPreview document={book.files} />
+                        </div>
                     </div>
                 </div>
-            </div>
+            ) : null}
 
             {/* Tài Liệu Cùng Thể Loại */}
             <div className='section'>
@@ -129,24 +302,10 @@ const BookPage = () => {
                     <div className='book-slider-section'>
                         <div className='book-slider-item'>
                             <div className='slider-header'>
-                                <p className='slider-title'>Đã xem</p>
-                                <Link to='/'>Xem tất cả</Link>
+                                <p className='slider-title'>Gợi ý</p>
+                                <Link to='/library'>Xem tất cả</Link>
                             </div>
-                            <BookSlider books={books} />
-                        </div>
-                        <div className='book-slider-item'>
-                            <div className='slider-header'>
-                                <p className='slider-title'>Cùng thể loại</p>
-                                <Link to='/'>Xem tất cả</Link>
-                            </div>
-                            <BookSlider books={books} />
-                        </div>
-                        <div className='book-slider-item'>
-                            <div className='slider-header'>
-                                <p className='slider-title'>Cùng tác giả</p>
-                                <Link to='/'>Xem tất cả</Link>
-                            </div>
-                            <BookSlider books={books} />
+                            <BookSlider books={suggests} />
                         </div>
                     </div>
                 </div>

@@ -1,40 +1,45 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import axios from "axios";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import Introduction from "../../components/Introduction/Introduction";
+import CustomBreadcrumb from "../../components/CustomBreadcrumb/CustomBreadcrumb";
 import Pagination from "../../components/Pagination/Pagination";
-import config from "../../config";
+import Config from "../../utils/Config";
 
 const IntroductionPage = () => {
-    const [books, setBooks] = useState(() => {
-        const objects = [];
-        for (let i = 0; i < 20; i++) {
-            objects.push({
-                name: "Luân hồi lạc viên",
-                createdAt: "2015-11-11",
-            });
-        }
-        return objects;
-    });
+    const API = `${Config.BASE_API_URL}`;
+    const [introductions, setIntroductions] = useState([]);
     const [pageData, setPageData] = useState([]);
     const listRef = useRef(null);
 
+    //Fetch introduction
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await axios.get(`${API}/introductions`);
+            setIntroductions(res.data.data);
+            setPageData(res.data.data.slice(0, Config.LIMIT));
+        };
+        fetchData();
+    }, []);
+
     return (
         <>
-            <PageTitle title={"Giới thiệu sách"} />
+            <PageTitle title={"Giới thiệu sách"} /> <CustomBreadcrumb />
             <div className='section' ref={listRef}>
                 <div className='container '>
                     <div className='book-introduction'>
-                        {pageData.map((b, index) => (
-                            <Introduction object={config.introductionObject} />
+                        {pageData.map((i, index) => (
+                            <Introduction key={index} object={i} />
                         ))}
                     </div>
                 </div>
             </div>
             <div className='card-pagination'>
                 <Pagination
-                    data={books}
+                    data={introductions}
                     setPageData={setPageData}
                     scrollRef={listRef}
+                    isIntro={true}
                 />
             </div>
             {/* Tạo khoảng cách với footer */}

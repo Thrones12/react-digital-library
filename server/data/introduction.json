@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Giới thiệu sách Cha giàu, cha nghèo",
+        "author": {
+            "$oid": "6746d781b869094f90eef593"
+        },
+        "createdAt": {
+            "$date": "2024-11-27T15:34:59.250Z"
+        },
+        "resource": {
+            "type": "Link",
+            "link": "https://www.youtube.com/watch?v=tJwZbjpRp1I"
+        },
+        "content": "Giới thiệu về youtube"
+    }
+]

@@ -1,0 +1,68 @@
+[{
+  "_id": {
+    "$oid": "6746d781b869094f90eef593"
+  },
+  "id": 2,
+  "email": "email2@example.com",
+  "password": "123",
+  "fullName": "Nguyễn Thị Hiền"
+},
+{
+  "_id": {
+    "$oid": "6746d781b869094f90eef594"
+  },
+  "id": 3,
+  "email": "email3@example.com",
+  "password": "123",
+  "fullName": "Nguyễn Huy"
+},
+{
+  "_id": {
+    "$oid": "6746d781b869094f90eef595"
+  },
+  "id": 4,
+  "email": "email4@example.com",
+  "password": "123",
+  "fullName": "Bùi Quốc Khang"
+},
+{
+  "_id": {
+    "$oid": "6746d781b869094f90eef596"
+  },
+  "id": 5,
+  "email": "email5@example.com",
+  "password": "123",
+  "fullName": "Cao Thị Ngọc Phụng"
+},
+{
+  "_id": {
+    "$oid": "6746d781b869094f90eef597"
+  },
+  "id": 6,
+  "email": "email6@example.com",
+  "password": "123",
+  "fullName": "Đặng Kim Thành"
+},
+{
+  "_id": {
+    "$oid": "67473c232be74779a4b2cfb6"
+  },
+  "email": "hungphong.congviec@gmail.com",
+  "password": "Phong@123",
+  "profilePicture": "image/UserProfilePicture/default.jpg",
+  "fullName": "Phạm Phong",
+  "phone": "0981141044",
+  "role": "User",
+  "status": "Inactive",
+  "otpVertify": "000000",
+  "followedBook": [],
+  "downloadHistory": [],
+  "requestHistory": [],
+  "createdAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "__v": 0
+}]

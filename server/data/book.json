@@ -1,0 +1,36 @@
+[
+    {
+        "header": {
+            "creator": {
+                "$oid": "6746d781b869094f90eef593"
+            },
+            "createdAt": {
+                "$date": "2024-11-27T15:34:59.250Z"
+            },
+            "updatedAt": {
+                "$date": "2024-11-27T15:34:59.250Z"
+            }
+        },
+        "DescriptiveMetadata": {
+            "barcode": "BOOK1",
+            "picture": "/images/books/ban-ve-van-minh.jpg",
+            "title": "Bàn về văn minh",
+            "author": "Fukuzawa Yukichi",
+            "category": {
+                "$oid": "67481e1c07e8c248f63b76ef"
+            },
+            "publisher": "NXB Thế giới",
+            "publicationYear": "2018",
+            "subAuthor": [],
+            "language": "vi"
+        },
+        "AdministrativeMetadata": {
+            "type": "Text",
+            "format": "pdf",
+            "size": "25kB",
+            "copyright": "Công ty Văn hóa & Truyền thông Nhã Nam",
+            "source": null
+        },
+        "files": ["/book/BanVeVanMinh"]
+    }
+]

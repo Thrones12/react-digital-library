@@ -1,13 +1,14 @@
 import React from "react";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import CounterSection from "../../components/Counter/CounterSection";
+import CustomBreadcrumb from "../../components/CustomBreadcrumb/CustomBreadcrumb";
 import "./AboutPage.css";
 
 const AboutPage = () => {
     return (
         <>
             <PageTitle title={"Giới thiệu về chúng tôi"} />
-
+            <CustomBreadcrumb />
             <div className='section-about'>
                 <div className='container'>
                     <div className='about-content'>

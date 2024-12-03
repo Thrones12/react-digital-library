@@ -18,10 +18,19 @@ const shema = new mongoose.Schema({
     publisher: {
         type: String,
     },
-    publicationYear: {
+    reason: {
         type: String,
     },
+    status: {
+        type: String,
+        enum: ["Pending", "Approved", "Rejected", "InProcess", "Completed"],
+        default: "Pending",
+    },
     createdAt: {
+        type: Date,
+        default: Date.now,
+    },
+    updatedAt: {
         type: Date,
         default: Date.now,
     },

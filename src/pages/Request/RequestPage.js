@@ -1,11 +1,57 @@
 import React from "react";
+import axios from "axios";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import CustomBreadcrumb from "../../components/CustomBreadcrumb/CustomBreadcrumb";
+import Config from "../../utils/Config";
+import NotiUtils from "../../utils/NotiUtils";
 import "./RequestPage.css";
 
 const RequestPage = () => {
+    const API = `${Config.BASE_API_URL}/requests`;
+    const formik = useFormik({
+        initialValues: {
+            title: "",
+            author: "",
+            category: "",
+            publisher: "",
+            reason: "",
+        },
+        validateOnChange: Yup.object({
+            title: Yup.string().required(),
+            author: Yup.string().required(),
+            reason: Yup.string().required(),
+        }),
+        onSubmit: async (values, { resetForm }) => {
+            const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+            if (userInfo) {
+                try {
+                    const res = await axios.post(`${API}`, {
+                        user: userInfo.data,
+                        title: values.title,
+                        author: values.author,
+                        category: values.category,
+                        publisher: values.publisher,
+                        reason: values.reason,
+                    });
+                    NotiUtils.success("Gửi yêu cầu thành công");
+                    resetForm();
+                } catch (err) {
+                    if (err.status === 409) {
+                        NotiUtils.info("Yêu cầu này đã được gửi trước đó");
+                    } else {
+                        NotiUtils.error("Gửi yêu cầu thất bại");
+                    }
+                }
+            } else {
+                NotiUtils.info("Bạn cần đăng nhập để gửi yêu cầu");
+            }
+        },
+    });
     return (
         <>
-            <PageTitle title={"Yêu cầu sách mới"} />
+            <PageTitle title={"Yêu cầu sách mới"} /> <CustomBreadcrumb />
             <div className='section-request'>
                 <div className='container'>
                     <div className='request-content'>
@@ -35,41 +81,47 @@ const RequestPage = () => {
                             </div>
                         </div>
                         <div className='col col-6'>
-                            <div class='request-form'>
+                            <div className='request-form'>
                                 <h1>Biểu mẫu yêu cầu</h1>
                                 <div className='seperator'></div>
                                 <p></p>
-                                <form>
+                                <form onSubmit={formik.handleSubmit}>
                                     <input
                                         type='text'
-                                        id='book-title'
-                                        name='book-title'
-                                        placeholder='Tên tài liệu'
+                                        id='title'
+                                        name='title'
+                                        placeholder='Tên tài liệu *'
                                         required
+                                        {...formik.getFieldProps("title")}
                                     />
                                     <input
                                         type='text'
-                                        id='book-author'
-                                        name='book-author'
-                                        placeholder='Tên tác giả (nếu biết)'
+                                        id='author'
+                                        name='author'
+                                        placeholder='Tên tác giả *'
+                                        required
+                                        {...formik.getFieldProps("author")}
                                     />
                                     <input
                                         type='text'
-                                        id='book-category'
-                                        name='book-category'
+                                        id='category'
+                                        name='category'
                                         placeholder='Thể loại. Ví dụ: Công nghệ, Khoa học...'
+                                        {...formik.getFieldProps("category")}
                                     />{" "}
                                     <input
-                                        type='email'
-                                        id='email'
-                                        name='email'
-                                        placeholder='Email liên hệ'
-                                        required
+                                        type='text'
+                                        id='publisher'
+                                        name='publisher'
+                                        placeholder='Nhà xuất bản'
+                                        {...formik.getFieldProps("publisher")}
                                     />
                                     <textarea
                                         id='reason'
                                         name='reason'
-                                        placeholder='Hãy cho chúng tôi biết lý do bạn cần tài liệu này...'
+                                        placeholder='Hãy cho chúng tôi biết lý do bạn cần tài liệu này... '
+                                        required
+                                        {...formik.getFieldProps("reason")}
                                         rows='10'
                                     ></textarea>
                                     <button type='submit'>Gửi yêu cầu</button>
