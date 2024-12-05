@@ -136,7 +136,23 @@ const Update = async (req, res) => {
                 { email: updateData.email },
                 updateData,
                 { new: true }
-            );
+            )
+                .populate({
+                    path: "followedBook",
+                    model: "Book",
+                })
+                .populate({
+                    path: "downloadHistory",
+                    model: "History",
+                    populate: {
+                        path: "book",
+                        model: "Book",
+                    },
+                })
+                .populate({
+                    path: "requestHistory",
+                    model: "Request",
+                });
 
             // updatedData không có dữ liệu trả về => không tìm thấy dữ liệu
             if (!updatedData) {

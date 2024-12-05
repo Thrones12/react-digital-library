@@ -79,6 +79,7 @@ header .container {
     box-shadow: var(--box-shadow);
     transition: all 0.3s ease-out;
     padding: 0;
+    border: 1px solid var(--color-dark-brown);
 }
 .header-controls .account-control a:hover {
     box-shadow: var(--box-shadow-2);

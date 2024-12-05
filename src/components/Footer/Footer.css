@@ -21,15 +21,19 @@ footer {
 .social-icon {
     width: 40px;
     height: 40px;
-    display: inline-block;
     font-size: 18px;
     border-radius: 50%;
     background-color: #ddd;
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+}
+
+.social-icon svg {
+    margin: 0 auto;
+    vertical-align: 0;
+    width: 20px;
+    height: 20px;
 }
 
 .facebook {

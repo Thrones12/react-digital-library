@@ -33,9 +33,15 @@ const CustomBreadcrumb = () => {
         } else if (location.pathname.includes("/profile")) {
             setPrevs([{ name: "Trang chủ", path: "/home" }]);
             setActive({ name: "Tài khoản", path: "/profile" });
+        } else if (location.pathname.includes("/introductions/")) {
+            setPrevs([
+                { name: "Trang chủ", path: "/home" },
+                { name: "Giới thiệu sách", path: "/introductions" },
+            ]);
+            setActive({ name: "Chi tiết", path: "/introductions" });
         } else {
             setPrevs([{ name: "Trang chủ", path: "/home" }]);
-            setActive({ name: "Giới thiệu sách", path: "/introduction" });
+            setActive({ name: "Giới thiệu sách", path: "/introductions" });
         }
     }, []);
 

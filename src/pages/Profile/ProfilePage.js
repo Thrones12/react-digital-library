@@ -34,6 +34,7 @@ const ProfilePage = () => {
     useEffect(() => {
         try {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+            console.log(userInfo.data);
 
             if (userInfo.expiryTime - Date.now() > 0) {
                 setUser(userInfo.data);

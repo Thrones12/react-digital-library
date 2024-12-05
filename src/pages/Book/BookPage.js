@@ -16,6 +16,7 @@ const BookPage = () => {
     const HIS_API = `${Config.BASE_API_URL}/histories`;
     const AUTH_API = `${Config.BASE_API_URL}/auth`;
     const USER_API = `${Config.BASE_API_URL}/users`;
+    const SUPPORT_API = `${Config.BASE_API_URL}/supports`;
     const { id } = useParams();
     const [user, setUser] = useState(null);
     const [book, setBook] = useState(null);
@@ -93,7 +94,13 @@ const BookPage = () => {
                 user: user._id,
                 book: book_id,
             });
-            user.downloadHistory.push(hisRes.data.data);
+            if (
+                !user.downloadHistory.some(
+                    (item) => item._id === hisRes.data.data._id
+                )
+            ) {
+                user.downloadHistory.push(hisRes.data.data);
+            }
             const resUser = await axios.put(USER_API, user);
 
             // Lưu thông tin user vào localStorage
@@ -109,6 +116,51 @@ const BookPage = () => {
 
             setUser(resUser.data.data);
         } catch (err) {}
+    };
+
+    const handleFollow = async (e, book_id) => {
+        e.preventDefault();
+        try {
+            const bookRes = await axios.get(`${BOOK_API}/${book_id}`);
+            user.followedBook.push(bookRes.data.data);
+
+            const resUser = await axios.put(USER_API, user);
+
+            // Lưu thông tin user vào localStorage
+            const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+            const tempTime = userInfo.expiryTime;
+            localStorage.setItem(
+                "userInfo",
+                JSON.stringify({
+                    data: resUser.data.data,
+                    expiryTime: tempTime,
+                })
+            );
+
+            setUser(resUser.data.data);
+            NotiUtils.success("Theo dõi tài liệu thành công");
+        } catch (err) {
+            NotiUtils.error(err.response.data.details);
+        }
+    };
+    const handleRequest = async () => {
+        const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+        if (userInfo) {
+            try {
+                const res = await axios.post(`${SUPPORT_API}`, {
+                    name: "User: " + userInfo.data._id,
+                    email: userInfo.data.email,
+                    phone: userInfo.data.phone,
+                    subject: "Yêu cầu quyền tải sách",
+                    message: `Yêu cầu được nâng cấp privilege lên ${book.AdministrativeMetadata.hasPrivilege} để tải sách ${book.DescriptiveMetadata.title}, mã ${book._id}`,
+                });
+                NotiUtils.success("Gửi yêu cầu thành công");
+            } catch (err) {
+                NotiUtils.error("Gửi yêu cầu thất bại");
+            }
+        } else {
+            NotiUtils.info("Bạn cần đăng nhập để gửi yêu cầu");
+        }
     };
     return (
         <>
@@ -215,28 +267,17 @@ const BookPage = () => {
                                     {book &&
                                     book.AdministrativeMetadata.isAvailable ? (
                                         <>
-                                            <button className='btn-read'>
+                                            <button
+                                                className='btn-read'
+                                                onClick={(e) =>
+                                                    handleFollow(e, book._id)
+                                                }
+                                            >
                                                 Theo dõi
                                             </button>
                                             {book.AdministrativeMetadata
                                                 .hasPrivilege ===
                                             user.privilege ? (
-                                                // <button
-                                                //     className='btn-download'
-                                                //     onClick={() => {
-                                                //         const link =
-                                                //             document.createElement(
-                                                //                 "a"
-                                                //             );
-                                                //         link.href = `${book.files}`; // Đường dẫn tới file trong thư mục public
-                                                //         link.download = `${book.files
-                                                //             .split("/")
-                                                //             .pop()}`; // Tên file khi tải xuống
-                                                //         link.click();
-                                                //     }}
-                                                // >
-                                                //     Tải xuống
-                                                // </button>
                                                 <button
                                                     className='btn-download'
                                                     onClick={(e) =>
@@ -250,7 +291,10 @@ const BookPage = () => {
                                                     Tải xuống
                                                 </button>
                                             ) : (
-                                                <button className='btn-download'>
+                                                <button
+                                                    className='btn-download'
+                                                    onClick={handleRequest}
+                                                >
                                                     Yêu cầu
                                                 </button>
                                             )}
@@ -305,7 +349,7 @@ const BookPage = () => {
                                 <p className='slider-title'>Gợi ý</p>
                                 <Link to='/library'>Xem tất cả</Link>
                             </div>
-                            <BookSlider books={suggests} />
+                            <BookSlider books={suggests} isSmall={true} />
                         </div>
                     </div>
                 </div>

@@ -7,12 +7,16 @@ import "./SearchBar.css";
 
 const SearchBar = ({ isSmall }) => {
     const nav = useNavigate();
-    const [query, setQuery] = useState();
+    const [query, setQuery] = useState("");
     const [searchParams] = useSearchParams();
 
     useEffect(() => {
         const searchParam = searchParams.get("search");
-        setQuery(searchParam);
+        if (searchParam === undefined || searchParam === null) {
+            setQuery("");
+        } else {
+            setQuery(searchParam);
+        }
     }, []);
 
     const keydown = (e) => {
@@ -41,7 +45,7 @@ const SearchBar = ({ isSmall }) => {
                 type='text'
                 placeholder='Tìm kiếm theo tên tài liệu và tác giả'
                 value={query}
-                onChange={(e) => setQuery(e.target.value.toLowerCase())}
+                onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={keydown}
             />
             <button onClick={search}>

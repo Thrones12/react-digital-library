@@ -43,8 +43,12 @@ const LibraryPage = () => {
                         const title = data.DescriptiveMetadata.title;
                         const author = data.DescriptiveMetadata.author;
                         return (
-                            title.toLowerCase().includes(searchQuery) ||
-                            author.toLowerCase().includes(searchQuery)
+                            title
+                                .toLowerCase()
+                                .includes(searchQuery.toLowerCase()) ||
+                            author
+                                .toLowerCase()
+                                .includes(searchQuery.toLowerCase())
                         );
                     }
                     return true;
