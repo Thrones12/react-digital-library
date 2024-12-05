@@ -1,16 +1,71 @@
-[
-    {
-        "title": "Giới thiệu sách Cha giàu, cha nghèo",
-        "author": {
-            "$oid": "6746d781b869094f90eef593"
-        },
-        "createdAt": {
-            "$date": "2024-11-27T15:34:59.250Z"
-        },
-        "resource": {
-            "type": "Link",
-            "link": "https://www.youtube.com/watch?v=tJwZbjpRp1I"
-        },
-        "content": "Giới thiệu về youtube"
-    }
-]
+[{
+  "_id": {
+    "$oid": "67480b1907e8c248f63b76dc"
+  },
+  "title": "Đi tìm lẽ sống",
+  "author": {
+    "$oid": "674b52cef4d38e665fcb7c30"
+  },
+  "createdAt": {
+    "$date": "2024-11-26T15:34:59.250Z"
+  },
+  "resource": {
+    "type": "Link",
+    "path": "https://www.youtube.com/embed/Mcc6QEhKBo4?start=371"
+  },
+  "content": "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>Đi Tìm Lẽ Sống</em> (tựa gốc: <em>Man's Search for Meaning</em>) là một tác phẩm nổi tiếng của Viktor E. Frankl, một bác sĩ tâm lý học người Áo và là người sáng lập Logotherapy, một phương pháp trị liệu tâm lý giúp con người tìm kiếm ý nghĩa trong cuộc sống. Cuốn sách này không chỉ là một tác phẩm tự truyện, mà còn là một cuốn sách mang đến những bài học sâu sắc về sự sống, nỗi khổ đau và cách đối diện với những thử thách lớn nhất trong cuộc đời.</p>\n<p>Viktor Frankl viết <em>Đi Tìm Lẽ Sống</em> dựa trên những trải nghiệm cá nhân của ông trong các trại tập trung của Đức Quốc xã trong Thế chiến II. Frankl đã chứng kiến và trải qua nỗi đau khủng khiếp, nhưng điều đặc biệt là ông vẫn duy trì được một niềm tin vững chắc vào ý nghĩa của cuộc sống. Theo Frankl, dù đối mặt với những hoàn cảnh tồi tệ nhất, con người vẫn có thể tìm thấy một mục đích trong cuộc sống và vì mục đích đó, họ có thể sống sót và phát triển.</p>\n<p>Cuốn sách chia làm hai phần chính. Phần đầu tiên là những trải nghiệm của Frankl trong trại tập trung, mô tả những điều kiện sống tàn bạo và sự mất mát của rất nhiều con người. Dù vậy, Frankl đã nhận ra rằng, chính việc tìm thấy một mục đích sống có thể giúp con người vượt qua mọi khổ đau. Phần thứ hai của cuốn sách đi sâu vào lý thuyết Logotherapy của ông, lý thuyết này khẳng định rằng \"ý nghĩa cuộc sống\" là yếu tố quan trọng nhất để con người có thể duy trì sức sống và khả năng vượt qua những khó khăn.</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>Đi Tìm Lẽ Sống</em> không chỉ là một câu chuyện về cuộc sống trong trại tập trung, mà còn là một cuốn sách tâm lý học sâu sắc, với những quan điểm về cách chúng ta có thể tìm thấy ý nghĩa trong mọi hoàn cảnh của cuộc sống. Cuốn sách truyền tải thông điệp mạnh mẽ rằng, ngay cả trong những khoảnh khắc tối tăm nhất, chúng ta có thể lựa chọn cách phản ứng và tìm thấy sức mạnh từ chính bản thân.</p>\n<p>Thông qua tác phẩm này, Viktor E. Frankl đã mở ra một cánh cửa giúp người đọc nhìn nhận lại cuộc sống và tìm ra lẽ sống, không chỉ là sự tồn tại mà là một hành trình đầy ý nghĩa.</p>"
+},
+{
+  "_id": {
+    "$oid": "674aeb3945df179bac05dece"
+  },
+  "title": "Tuổi trẻ đáng giá bao nhiêu",
+  "author": {
+    "$oid": "674b52cef4d38e665fcb7c30"
+  },
+  "createdAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "resource": {
+    "type": "Link",
+    "path": "https://www.youtube.com/embed/Mcc6QEhKBo4?start=371"
+  },
+  "content": "Giới thiệu về sách đi nè",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674aeb5845df179bac05dedd"
+  },
+  "title": "Bàn về văn minh",
+  "author": {
+    "$oid": "674b52cef4d38e665fcb7c30"
+  },
+  "createdAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "resource": {
+    "type": "Link",
+    "path": "https://www.youtube.com/embed/Mcc6QEhKBo4?start=371"
+  },
+  "content": "Giới thiệu về sách đi nè",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674aeb6645df179bac05deec"
+  },
+  "title": "Đắc nhân tâm",
+  "author": {
+    "$oid": "674b52cef4d38e665fcb7c30"
+  },
+  "createdAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "resource": {
+    "type": "Link",
+    "path": "https://www.youtube.com/embed/Mcc6QEhKBo4?start=371"
+  },
+  "content": "Giới thiệu về sách đi nè",
+  "__v": 0
+}]

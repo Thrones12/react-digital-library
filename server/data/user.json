@@ -1,68 +1,132 @@
 [{
   "_id": {
-    "$oid": "6746d781b869094f90eef593"
+    "$oid": "674b52cef4d38e665fcb7c30"
   },
-  "id": 2,
-  "email": "email2@example.com",
+  "email": "hungphong.canhan@gmail.com",
   "password": "123",
-  "fullName": "Nguyễn Thị Hiền"
-},
-{
-  "_id": {
-    "$oid": "6746d781b869094f90eef594"
-  },
-  "id": 3,
-  "email": "email3@example.com",
-  "password": "123",
-  "fullName": "Nguyễn Huy"
-},
-{
-  "_id": {
-    "$oid": "6746d781b869094f90eef595"
-  },
-  "id": 4,
-  "email": "email4@example.com",
-  "password": "123",
-  "fullName": "Bùi Quốc Khang"
-},
-{
-  "_id": {
-    "$oid": "6746d781b869094f90eef596"
-  },
-  "id": 5,
-  "email": "email5@example.com",
-  "password": "123",
-  "fullName": "Cao Thị Ngọc Phụng"
-},
-{
-  "_id": {
-    "$oid": "6746d781b869094f90eef597"
-  },
-  "id": 6,
-  "email": "email6@example.com",
-  "password": "123",
-  "fullName": "Đặng Kim Thành"
-},
-{
-  "_id": {
-    "$oid": "67473c232be74779a4b2cfb6"
-  },
-  "email": "hungphong.congviec@gmail.com",
-  "password": "Phong@123",
-  "profilePicture": "image/UserProfilePicture/default.jpg",
-  "fullName": "Phạm Phong",
-  "phone": "0981141044",
-  "role": "User",
-  "status": "Inactive",
+  "profilePicture": "/images/UserProfilePicture/default.jpg",
+  "fullName": "Phạm Hùng Phong",
+  "phone": null,
+  "role": "Admin",
+  "status": "Active",
   "otpVertify": "000000",
   "followedBook": [],
   "downloadHistory": [],
   "requestHistory": [],
   "createdAt": {
-    "$date": "2024-11-27T15:34:59.250Z"
+    "$date": "2024-11-30T18:00:46.745Z"
   },
   "updatedAt": {
-    "$date": "2024-11-27T15:34:59.250Z"
+    "$date": "2024-11-30T18:00:46.745Z"
   },
-  "__v": 0
+  "__v": 0,
+  "privilege": 1
+},
+{
+  "_id": {
+    "$oid": "674b5b497b57b4f1dab1abf2"
+  },
+  "email": "thunder1412.td@gmail.com",
+  "password": "Phong@1234",
+  "profilePicture": "/images/UserProfilePicture/file-1733242404747-762010393.jpg",
+  "fullName": "User One",
+  "phone": "0981141044",
+  "role": "User",
+  "status": "Active",
+  "otpVertify": "8075",
+  "followedBook": [],
+  "downloadHistory": [],
+  "requestHistory": [],
+  "createdAt": {
+    "$date": "2024-11-30T18:36:57.667Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-30T18:36:57.667Z"
+  },
+  "__v": 0,
+  "privilege": 0
+},
+{
+  "_id": {
+    "$oid": "674b70e5acee208dff767933"
+  },
+  "email": "hungphong.conviec@gmail.com",
+  "password": "Phong@123",
+  "profilePicture": "/images/UserProfilePicture/default.jpg",
+  "fullName": "Phạm Hùng Phong",
+  "phone": null,
+  "role": "User",
+  "status": "Inactive",
+  "otpVertify": "3177",
+  "followedBook": [],
+  "downloadHistory": [],
+  "requestHistory": [],
+  "createdAt": {
+    "$date": "2024-11-30T20:09:09.234Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-30T20:09:09.234Z"
+  },
+  "__v": 0,
+  "privilege": 0
+},
+{
+  "_id": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "email": "hungphong.congviec@gmail.com",
+  "password": "Phong@123",
+  "profilePicture": "/images/UserProfilePicture/default.jpg",
+  "fullName": "Phạm Hùng Phong",
+  "phone": "0981141044",
+  "role": "User",
+  "status": "Active",
+  "otpVertify": "7532",
+  "followedBook": [
+    {
+      "$oid": "6748b1483a5723dd7b49538f"
+    },
+    {
+      "$oid": "6748b1993a5723dd7b495393"
+    },
+    {
+      "$oid": "6748b1483a5723dd7b49538f"
+    },
+    {
+      "$oid": "674ae8fb2700900a1d1742c3"
+    }
+  ],
+  "downloadHistory": [
+    {
+      "$oid": "674f6f1595a59cd4b45be5ca"
+    },
+    {
+      "$oid": "675096baa8f3e72cbdb28781"
+    },
+    {
+      "$oid": "674f6fb195a59cd4b45be5ee"
+    },
+    {
+      "$oid": "6750977055f22f396d354e94"
+    }
+  ],
+  "requestHistory": [
+    {
+      "$oid": "674c65c1a72c902c1053cf29"
+    },
+    {
+      "$oid": "674c6636a72c902c1053cf2d"
+    },
+    {
+      "$oid": "674c6649a72c902c1053cf30"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-11-30T20:09:37.037Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-30T20:09:37.037Z"
+  },
+  "__v": 0,
+  "privilege": 0
 }]

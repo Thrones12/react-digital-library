@@ -1,36 +1,294 @@
-[
-    {
-        "header": {
-            "creator": {
-                "$oid": "6746d781b869094f90eef593"
-            },
-            "createdAt": {
-                "$date": "2024-11-27T15:34:59.250Z"
-            },
-            "updatedAt": {
-                "$date": "2024-11-27T15:34:59.250Z"
-            }
-        },
-        "DescriptiveMetadata": {
-            "barcode": "BOOK1",
-            "picture": "/images/books/ban-ve-van-minh.jpg",
-            "title": "Bàn về văn minh",
-            "author": "Fukuzawa Yukichi",
-            "category": {
-                "$oid": "67481e1c07e8c248f63b76ef"
-            },
-            "publisher": "NXB Thế giới",
-            "publicationYear": "2018",
-            "subAuthor": [],
-            "language": "vi"
-        },
-        "AdministrativeMetadata": {
-            "type": "Text",
-            "format": "pdf",
-            "size": "25kB",
-            "copyright": "Công ty Văn hóa & Truyền thông Nhã Nam",
-            "source": null
-        },
-        "files": ["/book/BanVeVanMinh"]
+[{
+  "_id": {
+    "$oid": "6748b1483a5723dd7b49538f"
+  },
+  "header": {
+    "creator": {
+      "$oid": "6746d781b869094f90eef593"
+    },
+    "createdAt": {
+      "$date": "2024-11-17T15:34:59.250Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-17T15:34:59.250Z"
     }
-]
+  },
+  "DescriptiveMetadata": {
+    "barcode": "BOOK2",
+    "picture": "/images/books/tro-choi-tu-duy.jpg",
+    "title": "Trò chơi tư duy",
+    "author": "Michael Michalko",
+    "description": "“Khi một chú mèo con gặp nguy hiểm, nó chỉ biết kêu ‘meo meo’ để cầu cứu mèo mẹ. Trái lại, khỉ con sẽ chạy thẳng đến chỗ khỉ mẹ và nhảy ngay lên lưng mẹ nó mỗi khi ‘đánh hơi’ thấy nguy hiểm. Khỉ con đã biết cách tìm đến nơi an toàn, hay nói cách khác là tự tìm đường sống cho mình.” Trong cuộc sống, cũng có thể phân khả năng sáng tạo của con người thành hai loại như vậy. Có những người đã quen ỷ lại vào người khác, nên khi tự mình đối mặt với vấn đề thường bế tắc, không tìm ra cách để giải quyết. Có những người lại biết tự thân vận động, dù khó khăn thế nào đi nữa cũng nỗ lực tìm ra cách giải quyết. Vậy bạn là mèo hay là khỉ? Về cơ bản, cuốn sách Trò chơi tư duy của tác giả Michael Michalko sẽ hướng dẫn những bạn đọc có tư duy chủ động cách để không ngừng sáng tạo, mỗi ngày đều có thể sản sinh ra một lượng lớn ý tưởng độc đáo bằng nhiều phương pháp khác nhau. Với Trò chơi tư duy, sự sáng tạo không phải là một khả năng thiên bẩm hay những trò ma thuật bí ẩn, mà sáng tạo bắt đầu từ thái độ của các bạn đối với chính bản thân mình và với cuộc sống: liệu bạn có đủ quyết tâm hay không, có đủ kiên trì hay không… Nhưng nếu bạn là một người luôn nghi ngờ bản thân và cho rằng mình không sáng tạo, bạn vẫn nên đọc cuốn sách này. Những chương đầu sẽ hướng dẫn bạn cách lấy lại sự tự tin và tìm về với bản năng sáng tạo luôn tồn tại trong mỗi con người chúng ta. Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....",
+    "category": {
+      "$oid": "6748939607e8c248f63b7744"
+    },
+    "publisher": "NXB Thế giới",
+    "publicationYear": "2018",
+    "subAuthor": [],
+    "language": "vi"
+  },
+  "AdministrativeMetadata": {
+    "type": "Text",
+    "format": "pdf",
+    "size": "25kB",
+    "copyright": "Công ty Văn hóa & Truyền thông Nhã Nam",
+    "source": null,
+    "isAvailable": true,
+    "hasPrivilege": 0,
+    "download": 160
+  },
+  "files": "/documents/test.pdf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6748b1993a5723dd7b495393"
+  },
+  "header": {
+    "creator": {
+      "$oid": "6746d781b869094f90eef593"
+    },
+    "createdAt": {
+      "$date": "2024-11-27T15:34:59.250Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-27T15:34:59.250Z"
+    }
+  },
+  "DescriptiveMetadata": {
+    "barcode": "BOOK4",
+    "picture": "/images/books/ban-ve-van-minh.jpg",
+    "title": "Bàn về văn minh",
+    "author": "Fukuzawa Yukichi",
+    "description": "Bàn về văn minh được coi là một trong những tác phẩm quan trọng nhất của Fukuzawa Yukichi, nhà tư tưởng, nhà giáo dục nổi tiếng Nhật Bản. Giàu tính triết luận, Bàn về văn minh bằng cách đặt ra hàng loạt các vấn đề xã hội, văn hoá, chính trị, kinh tế, đạo đức... đã mở ra con đường để Nhật Bản, với tư cách một nước đang phát triển, nối kết với thế giới văn minh, tiến bộ. Phản hồi lại các tư tưởng của những tác gia phương Tây đương thời như John Stuart Mill, Herbert Spencer, Thomas Buckle, Francois Guizot,cũng như phân tích thấu đáo hình thái tù đọng, đơn điệu của xã hội châu Á, Fukuzawa đã khích lệ cả tinh thần quốc gia lẫn tinh thần cá nhân, ngợi ca xu hướng tự do của khu vực tư nhân. 'Đọc vị' một cách sâu sắc các hình thái xã hội chậm tiến khác nhau đang vật lộn trên con đường phát triển, Fukuzawa Yukichi đã sáng suốt dự báo và khẳng định mô hình văn minh phương Tây như một con đường bắt buộc phải theo cho mọi quốc gia muốn tiến tới văn minh, tiến bộ; đồng thời, giúp độc giả nhận chân những giá trị tốt đẹp nhất, những giá trị vĩnh cửu, mà một quốc gia, một thể chế có thể đem đến cho mỗi con người.Bàn về văn minh, do vậy, có thể được coi như cuốn sách gối đầu giường cho những ai muốn tìm hiểu về văn minh, cũng như con đường tiến tới văn minh của một xã hội, một dân tộc. “Mỗi lần nói về Nhật Bản, lại không thể không nghĩ về mình. Sau hàng trăm năm đấu tranh và mấy cuộc chiến tranh liên miên, khốc liệt và anh hùng, chúng ta đã có được độc lập. Nhưng chúng ta còn một món nợ: cái bước tự luyện mình, dân tộc mình, từ ‘thô ráp’ đến ‘tinh tế’ để thật sự thành văn minh như người Nhật đã làm dưới sự dắt dẫn của những trí thức vĩ đại như Fukuzawa Yukichi, cái bước ấy ta chưa đi qua. Cho nên cuốn sách này của Fukuzawa Yukichi vẫn còn nguyên tính thời sự với chúng ta, vẫn là cuốn giáo khoa mẫu mực về con đường văn minh cho ta.”",
+    "category": {
+      "$oid": "6748939607e8c248f63b7744"
+    },
+    "publisher": "NXB Thế giới",
+    "publicationYear": "2018",
+    "subAuthor": [],
+    "language": "vi"
+  },
+  "AdministrativeMetadata": {
+    "type": "Text",
+    "format": "pdf",
+    "size": "25kB",
+    "copyright": "Công ty Văn hóa & Truyền thông Nhã Nam",
+    "source": null,
+    "isAvailable": true,
+    "hasPrivilege": 0,
+    "download": 150
+  },
+  "files": "/documents/test.pdf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6748b0923a5723dd7b4901d3"
+  },
+  "header": {
+    "creator": {
+      "$oid": "6746d781b869094f90eef593"
+    },
+    "createdAt": {
+      "$date": "2024-11-27T15:34:59.250Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-27T15:34:59.250Z"
+    }
+  },
+  "DescriptiveMetadata": {
+    "barcode": "BOOK1",
+    "picture": "/images/books/cha-giau-cha-ngheo.jpg",
+    "title": "Cha giàu, cha nghèo",
+    "author": "Robert Kiyosaki & Sharon L.Lechter",
+    "description": "Nguyên nhân khiến kẻ giàu càng giàu, người nghèo ngày càng nghèo, giới trung lưu thì thường mắc nợ chính là vì chủ đề tiền bạc được dạy ở nhà chứ không không ở trường. Chúng ta thường học cách xử lý tiền bạc từ cha mẹ của mình và thường thì người nghèo không dạy con về tiền bạc mà chỉ đơn giản nói là: 'Hãy đến trường và học chăm chỉ' chứ không dạy ta cách quản lý tiền bạc. Đó chính là lý do vì sao hầu hết các nhân viên ngân hàng, bác sĩ, kế toán rất thông minh nhưng họ lại gặp rắc rối ở tài chính hoặc họ được dạy về vấn đề này rất ít. Một quốc gia sẽ thế nào nếu vấn đề này không được dạy một cách phổ biến. Vì vậy, chúng tôi giới thiệu cuốn sách này với mong muốn giúp bạn có thêm nhiều nguồn tham khảo về những lĩnh vực phụ huynh cần dạy con trẻ trước khi bước vào đời. Mong nhận được sự đóng góp ý kiến của mọi người.",
+    "category": {
+      "$oid": "6748939607e8c248f63b7745"
+    },
+    "publisher": "NXB Thế giới",
+    "publicationYear": "2018",
+    "subAuthor": [],
+    "language": "vi"
+  },
+  "AdministrativeMetadata": {
+    "type": "Text",
+    "format": "pdf",
+    "size": "25kB",
+    "copyright": "Công ty Văn hóa & Truyền thông Nhã Nam",
+    "source": null,
+    "hasPrivilege": 1,
+    "isAvailable": true,
+    "download": 140
+  },
+  "files": "/documents/test.pdf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ae7da2700900a1d174296"
+  },
+  "header": {
+    "creator": {
+      "$oid": "6746d781b869094f90eef593"
+    },
+    "createdAt": {
+      "$date": "2024-11-27T15:34:59.250Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-27T15:34:59.250Z"
+    }
+  },
+  "DescriptiveMetadata": {
+    "barcode": "BOOK5",
+    "picture": "/images/books/giao-trinh-triet-hoc.jpg",
+    "title": "Giáo trình triết học",
+    "author": "Bộ giáo dục và đào tạo",
+    "description": "Giáo trình do Ban biên soạn gồm các tác giả là nhà nghiên cứu, nhà giáo dục thuộc Viện Triết học - Học viện Chính trị quốc gia Hồ Chí Minh, các học viện, trường đại học, Viện Triết học - Viện Hàn lâm Khoa học xã hội Việt Nam, tổ chức biên soạn trên cơ sở kế thừa những kết quả nghiên cứu trước đây, đồng thời bổ sung nhiều nội dung, kiến thức, kết quả nghiên cứu mới, gắn với công cuộc đổi mới ở Việt Nam, nhất là những thành tựu trong 35 năm đổi mới đất nước. Giáo trình gồm 03 chương: Chương 1 trình bày những nét khái quát nhất về triết học, triết học Mác - Lênin và vai trò của triết học Mác - Lênin trong đời sống xã hội. Chương 2 trình bày những nội dung cơ bản của chủ nghĩa duy vật biện chứng, gồm: vấn đề vật chất và ý thức; phép biện chứng duy vật; lý luận nhận thức của chủ nghĩa duy vật biện chứng. Chương 3 trình bày những nội dung cơ bản của chủ nghĩa duy vật lịch sử, gồm: vấn đề hình thái kinh tế - xã hội; giai cấp và dân tộc; nhà nước và cách mạng xã hội; ý thức xã hội; triết học về con người. Giáo trình được biên soạn theo yêu cầu đổi mới căn bản, toàn diện giáo dục và đào tạo, phù hợp với đối tượng người học, nhằm cung cấp những tri thức hiểu biết có tính nền tảng và hệ thống về triết học Mác - Lênin; xây dựng thế giới quan duy vật và phương pháp luận biện chứng duy vật làm nền tảng lý luận cho việc nhận thức các vấn đề, nội dung của các môn học khác; nhận thức được thực chất giá trị, bản chất khoa học, cách mạng của triết học Mác - Lênin. Đồng thời, giúp cho sinh viên vận dụng tri thức triết học Mác - Lênin, thế giới quan duy vật và phương pháp luận biện chứng duy vật để rèn luyện tư duy, giúp ích trong học tập và cuộc sống. Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng) Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....",
+    "category": {
+      "$oid": "6748939607e8c248f63b7744"
+    },
+    "publisher": "Nhà Xuất Bản Chính Trị Quốc Gia Sự Thật",
+    "publicationYear": "",
+    "subAuthor": [],
+    "language": "vi"
+  },
+  "AdministrativeMetadata": {
+    "type": "Text",
+    "format": "pdf",
+    "size": "25kB",
+    "copyright": "Bộ giáo dục và đào tạo",
+    "source": null,
+    "download": 0,
+    "hasPrivilege": 0,
+    "isAvailable": false
+  },
+  "files": "/documents/test.pdf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ae86b2700900a1d17429c"
+  },
+  "header": {
+    "creator": {
+      "$oid": "6746d781b869094f90eef593"
+    },
+    "createdAt": {
+      "$date": "2024-08-27T15:34:59.250Z"
+    },
+    "updatedAt": {
+      "$date": "2024-10-27T15:34:59.250Z"
+    }
+  },
+  "DescriptiveMetadata": {
+    "barcode": "BOOK6",
+    "picture": "/images/books/500-bai-toan-chon-loc-lop-10.jpg",
+    "title": "500 Bài Toán Chọn Lọc Lớp 10",
+    "author": "Hàn Liên Hải",
+    "description": "500 Bài Toán Chọn Lọc Lớp 10 (Dùng Chung Cho Các Bộ SGK Hiện Hành) được biên soạn theo chuẩn kiến thức, kỹ năng chương trình sách giáo khoa lớp 10 mới. Sách tổng hợp 500 bài toán dựa theo chương trình học để các em rèn luyện kỹ năng giải bài tập một cách hiệu quả. Đây là tài liệu tham khảo hữu ích để các em học tốt bộ môn này.",
+    "category": {
+      "$oid": "6748939607e8c248f63b7745"
+    },
+    "publisher": "Nhà Xuất Bản Đại Học Quốc Gia Hà Nội",
+    "publicationYear": "2022",
+    "subAuthor": [],
+    "language": "vi"
+  },
+  "AdministrativeMetadata": {
+    "type": "Text",
+    "format": "pdf",
+    "size": "25kB",
+    "copyright": "Hàn Liên Hải",
+    "source": null,
+    "download": 130,
+    "hasPrivilege": 1,
+    "isAvailable": true
+  },
+  "files": "/documents/test.pdf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ae8fb2700900a1d1742c3"
+  },
+  "header": {
+    "creator": {
+      "$oid": "6746d781b869094f90eef593"
+    },
+    "createdAt": {
+      "$date": "2024-11-27T15:34:59.250Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-27T15:34:59.250Z"
+    }
+  },
+  "DescriptiveMetadata": {
+    "barcode": "BOOK7",
+    "picture": "/images/books/khoi-nghiep-ban-le.jpg",
+    "title": "Khởi Nghiệp Bán Lẻ",
+    "author": "Trần Thanh Phong",
+    "description": "TOP 1 SÁCH KHỞI NGHIỆP CHỨA ĐỰNG KINH NGHIỆM TRONG 10 NĂM KINH DOANH CỦA MỘT NGƯỜI TỪNG QUẢN LÝ 65 CỬA HÀNG BÁN LẺ.",
+    "category": {
+      "$oid": "6748939607e8c248f63b7745"
+    },
+    "publisher": "Nhà Xuất Bản Đà Nẵng",
+    "publicationYear": "2022",
+    "subAuthor": [],
+    "language": "vi"
+  },
+  "AdministrativeMetadata": {
+    "type": "Text",
+    "format": "pdf",
+    "size": "25kB",
+    "copyright": "Trần Thanh Phong",
+    "source": null,
+    "download": 0,
+    "hasPrivilege": 0,
+    "isAvailable": true
+  },
+  "files": "/documents/test.pdf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674aea532700900a1d1742fd"
+  },
+  "header": {
+    "creator": {
+      "$oid": "6746d781b869094f90eef593"
+    },
+    "createdAt": {
+      "$date": "2024-11-27T15:34:59.250Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-27T15:34:59.250Z"
+    }
+  },
+  "DescriptiveMetadata": {
+    "barcode": "BOOK8",
+    "picture": "/images/books/khoi-nghiep-ban-le.jpg",
+    "title": "Khởi Nghiệp Bán Lẻeee",
+    "author": "Trần Thanh Phong",
+    "description": "TOP 1 SÁCH KHỞI NGHIỆP CHỨA ĐỰNG KINH NGHIỆM TRONG 10 NĂM KINH DOANH CỦA MỘT NGƯỜI TỪNG QUẢN LÝ 65 CỬA HÀNG BÁN LẺ.",
+    "category": {
+      "$oid": "6748939607e8c248f63b7745"
+    },
+    "publisher": "Nhà Xuất Bản Đà Nẵng",
+    "publicationYear": "2022",
+    "subAuthor": [],
+    "language": "vi"
+  },
+  "AdministrativeMetadata": {
+    "type": "Text",
+    "format": "pdf",
+    "size": "25kB",
+    "copyright": "Trần Thanh Phong",
+    "source": null,
+    "download": 200,
+    "hasPrivilege": 0,
+    "isAvailable": true
+  },
+  "files": "/documents/test.pdf",
+  "__v": 0
+}]
