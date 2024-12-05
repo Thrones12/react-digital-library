@@ -71,9 +71,6 @@ function UserValidation(data) {
 }
 
 function ReviewValidation(data) {
-    if (!validateSubject(data.subject)) {
-        return { state: false, error: "Chủ đề bình luận chứa từ ngữ nhạy cảm" };
-    }
     if (!validateContent(data.content)) {
         return {
             state: false,

@@ -5,7 +5,10 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import BookSlider from "../../components/BookSlider/BookSlider";
 import BookRecommend from "../../components/BookRecommend/BookRecommend";
 import PDFPreview from "../../components/PDFPreview/PDFPreview";
+import PPTXPreview from "../../components/PPTXPreview/PPTXPreview";
 import CustomBreadcrumb from "../../components/CustomBreadcrumb/CustomBreadcrumb";
+import ReviewForm from "../../components/ReviewForm/ReviewForm";
+import ReviewList from "../../components/ReviewList/ReviewList";
 import BookController from "../../controllers/BookController";
 import Config from "../../utils/Config";
 import NotiUtils from "../../utils/NotiUtils";
@@ -17,6 +20,7 @@ const BookPage = () => {
     const AUTH_API = `${Config.BASE_API_URL}/auth`;
     const USER_API = `${Config.BASE_API_URL}/users`;
     const SUPPORT_API = `${Config.BASE_API_URL}/supports`;
+    const REVIEW_API = `${Config.BASE_API_URL}/reviews`;
     const { id } = useParams();
     const [user, setUser] = useState(null);
     const [book, setBook] = useState(null);
@@ -40,7 +44,6 @@ const BookPage = () => {
         const fetchData = async () => {
             try {
                 const res = await axios.get(`${BOOK_API}/${id}`);
-
                 setBook(res.data.data);
 
                 const category =
@@ -162,6 +165,25 @@ const BookPage = () => {
             NotiUtils.info("Bạn cần đăng nhập để gửi yêu cầu");
         }
     };
+
+    const handleSubmitReview = async (reviewData) => {
+        try {
+            const response = await axios.post(REVIEW_API, reviewData);
+            NotiUtils.success("Đánh giá thành công");
+            setTimeout(() => {
+                window.location.reload();
+            }, [1500]);
+        } catch (err) {
+            console.log(err);
+
+            if (err.status === 409) {
+                NotiUtils.info("Bạn đã đánh giá tài liệu này rồi");
+            } else {
+                NotiUtils.error("Đánh giá thất bại");
+            }
+        }
+    };
+
     return (
         <>
             <PageTitle title={"Tri thức trong tầm tay"} />
@@ -329,7 +351,7 @@ const BookPage = () => {
             </div>
 
             {/* Xem trước */}
-            {book ? (
+            {book && book.AdministrativeMetadata.format === "pdf" ? (
                 <div className='section' style={{ paddingTop: "40px" }}>
                     <div className='container'>
                         <div className='preview'>
@@ -339,6 +361,36 @@ const BookPage = () => {
                     </div>
                 </div>
             ) : null}
+
+            {book && book.AdministrativeMetadata.format === "pptx" ? (
+                <div className='section' style={{ paddingTop: "40px" }}>
+                    <div className='container'>
+                        <div className='preview'>
+                            <p className='preview-title'>Xem trước</p>
+                            <PPTXPreview fileUrl={book.files} />
+                        </div>
+                    </div>
+                </div>
+            ) : null}
+
+            {/* Đánh giá */}
+            {book && (
+                <div className='section'>
+                    <div className='container'>
+                        <div className='preview'>
+                            <p className='preview-title'>Đánh giá</p>
+                            <div className='review-list'>
+                                <ReviewForm
+                                    bookId={book._id}
+                                    userId={user._id}
+                                    onSubmitReview={handleSubmitReview}
+                                />
+                                <ReviewList bookId={book._id} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Tài Liệu Cùng Thể Loại */}
             <div className='section'>

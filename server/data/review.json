@@ -1,1 +1,40 @@
-[]
+[{
+  "_id": {
+    "$oid": "6751a7db65c33dd4795ba6af"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "6748b1483a5723dd7b49538f"
+  },
+  "createdAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "rating": 5,
+  "content": "Truyện thật sự rất hay, đề cử mọi người đọc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751ab568e41a6b6bc0057b4"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "6748b1483a5723dd7b49538f"
+  },
+  "createdAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "rating": 4,
+  "content": "Truyện thật sự rất hay, đề cử mọi người đọc",
+  "__v": 0
+}]

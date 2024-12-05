@@ -67,6 +67,39 @@ const GetByID = async (req, res) => {
     }
 };
 
+// Get By Book
+const GetByBook = async (req, res) => {
+    try {
+        const data = await Review.find({ book: req.params.book })
+            .populate({
+                path: "user",
+                model: "User",
+            })
+            .populate({
+                path: "book",
+                model: "Book",
+            });
+
+        // Get có dữ liệu thì trả về 200 không thì trả về 404
+        if (data) {
+            res.status(200).json({
+                message: "Get Review thành công",
+                data: data,
+            });
+        } else {
+            res.status(404).json({
+                message: "Review Not Found",
+                details: "Lỗi Get Review By ID: Không tìm thấy Review",
+            });
+        }
+    } catch (err) {
+        res.status(500).json({
+            message: "Lỗi server",
+            details: "Lỗi Get Review By ID: " + err,
+        });
+    }
+};
+
 // Tạo mới review
 const Create = async (req, res) => {
     try {
@@ -75,6 +108,7 @@ const Create = async (req, res) => {
             user: insertData.user,
             book: insertData.book,
         });
+
         // Kiểm tra review có tồn tại trong csdl không
         if (existingData) {
             return res.status(409).send({
@@ -89,6 +123,7 @@ const Create = async (req, res) => {
                 const newData = new Review(validateResult.data);
 
                 await newData.save();
+                console.log(newData);
 
                 res.status(200).json({
                     message: "Thêm Review thành công",
@@ -180,6 +215,7 @@ const Delete = async (req, res) => {
 module.exports = {
     GetAll,
     GetByID,
+    GetByBook,
     Create,
     Update,
     Delete,

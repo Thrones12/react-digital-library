@@ -23,10 +23,6 @@ const schema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    subject: {
-        type: String,
-        required: true,
-    },
     content: {
         type: String,
     },
