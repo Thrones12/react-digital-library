@@ -37,4 +37,124 @@
   "rating": 4,
   "content": "Truyện thật sự rất hay, đề cử mọi người đọc",
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751be7dbcd8a183e77f06e6"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "6748b1993a5723dd7b495393"
+  },
+  "rating": 5,
+  "content": "asdasd",
+  "createdAt": {
+    "$date": "2024-12-05T14:53:49.429Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-05T14:53:49.429Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751bec5bcd8a183e77f0732"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "6748b0923a5723dd7b4901d3"
+  },
+  "rating": 5,
+  "content": "asdasd",
+  "createdAt": {
+    "$date": "2024-12-05T14:55:01.516Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-05T14:55:01.516Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751bf7ebcd8a183e77f07cb"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "674ae7da2700900a1d174296"
+  },
+  "rating": 5,
+  "content": "asdasd",
+  "createdAt": {
+    "$date": "2024-12-05T14:58:06.116Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-05T14:58:06.116Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751bf9bbcd8a183e77f07fe"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "674ae86b2700900a1d17429c"
+  },
+  "rating": 5,
+  "content": "asd",
+  "createdAt": {
+    "$date": "2024-12-05T14:58:35.622Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-05T14:58:35.622Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751bfdabcd8a183e77f085f"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "674ae8fb2700900a1d1742c3"
+  },
+  "rating": 5,
+  "content": "123",
+  "createdAt": {
+    "$date": "2024-12-05T14:59:38.825Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-05T14:59:38.825Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751c057bcd8a183e77f08fc"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "674aea532700900a1d1742fd"
+  },
+  "rating": 5,
+  "content": "123",
+  "createdAt": {
+    "$date": "2024-12-05T15:01:43.311Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-05T15:01:43.311Z"
+  },
+  "__v": 0
 }]

@@ -280,8 +280,8 @@
     "language": "vi"
   },
   "AdministrativeMetadata": {
-    "type": "Text",
-    "format": "pdf",
+    "type": "PPTX",
+    "format": "pptx",
     "size": "25kB",
     "copyright": "Trần Thanh Phong",
     "source": null,
@@ -289,6 +289,6 @@
     "hasPrivilege": 0,
     "isAvailable": true
   },
-  "files": "/documents/test.pdf",
+  "files": "https://docs.google.com/presentation/d/e/2PACX-1vR_hxxUl_qAuQd-b-0AUxinqNWLp8T_vE-JRMNA0ama_YkQJTPCeQmNn4dByFdcBg/embed?start=false&loop=false&delayms=3000",
   "__v": 0
 }]

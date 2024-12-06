@@ -351,7 +351,7 @@ const BookPage = () => {
             </div>
 
             {/* Xem trước */}
-            {book && book.AdministrativeMetadata.format === "pdf" ? (
+            {book && book.AdministrativeMetadata.type === "Text" ? (
                 <div className='section' style={{ paddingTop: "40px" }}>
                     <div className='container'>
                         <div className='preview'>
@@ -362,12 +362,34 @@ const BookPage = () => {
                 </div>
             ) : null}
 
-            {book && book.AdministrativeMetadata.format === "pptx" ? (
+            {book && book.AdministrativeMetadata.type === "PPT" ? (
                 <div className='section' style={{ paddingTop: "40px" }}>
                     <div className='container'>
                         <div className='preview'>
                             <p className='preview-title'>Xem trước</p>
                             <PPTXPreview fileUrl={book.files} />
+                        </div>
+                    </div>
+                </div>
+            ) : null}
+
+            {book && book.AdministrativeMetadata.type === "Video" ? (
+                <div className='section' style={{ paddingTop: "40px" }}>
+                    <div className='container'>
+                        <div className='preview'>
+                            <p className='preview-title'>Xem trước</p>
+                            <video
+                                controls
+                                width={1200}
+                                height={600}
+                                style={{ border: "1px solid #000" }}
+                            >
+                                <source
+                                    src={book.files}
+                                    type='video/mp4'
+                                ></source>
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -382,7 +404,6 @@ const BookPage = () => {
                             <div className='review-list'>
                                 <ReviewForm
                                     bookId={book._id}
-                                    userId={user._id}
                                     onSubmitReview={handleSubmitReview}
                                 />
                                 <ReviewList bookId={book._id} />

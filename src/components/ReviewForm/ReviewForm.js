@@ -1,19 +1,27 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ReviewForm.css";
 
-function ReviewForm({ bookId, userId, onSubmitReview }) {
+function ReviewForm({ bookId, onSubmitReview }) {
+    const nav = useNavigate();
     const [rating, setRating] = useState(5);
     const [content, setContent] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const reviewData = {
-            user: userId,
-            book: bookId,
-            rating,
-            content,
-        };
-        onSubmitReview(reviewData);
+
+        const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+        if (userInfo.expiryTime - Date.now() > 0) {
+            const reviewData = {
+                user: userInfo.data._id,
+                book: bookId,
+                rating,
+                content,
+            };
+            onSubmitReview(reviewData);
+        } else {
+            nav("/auth/login");
+        }
     };
 
     return (

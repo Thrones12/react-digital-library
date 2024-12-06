@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import BookCard from "../../components/BookCard/BookCard";
@@ -10,14 +10,16 @@ import CustomBreadcrumb from "../../components/CustomBreadcrumb/CustomBreadcrumb
 import Config from "../../utils/Config";
 import NotiUtils from "../../utils/NotiUtils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faList, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faList, faXmark, faBroom } from "@fortawesome/free-solid-svg-icons";
 import "./LibraryPage.css";
 
 const LibraryPage = () => {
+    const nav = useNavigate();
     const BOOK_API = `${Config.BASE_API_URL}/books`;
     const CATE_API = `${Config.BASE_API_URL}/categories`;
-    const [searchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
     const [category, setCategory] = useState("");
+    const [type, setType] = useState("");
     const [books, setBooks] = useState([]);
     const [pageData, setPageData] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -34,9 +36,12 @@ const LibraryPage = () => {
         const fetchData = async () => {
             try {
                 const res = await axios.get(BOOK_API);
+
                 const searchQuery = searchParams.get("search");
                 const tempCategory = searchParams.get("category");
                 setCategory(tempCategory);
+                const tempType = searchParams.get("type");
+                setType(tempType);
 
                 const filterData = (data) => {
                     if (searchQuery && searchQuery.trim()) {
@@ -64,6 +69,12 @@ const LibraryPage = () => {
                     );
                 }
 
+                if (tempType) {
+                    filteredBooks = filteredBooks.filter(
+                        (data) => data.AdministrativeMetadata.type === tempType
+                    );
+                }
+
                 let sortedBooks = sortBook(filteredBooks, sort, isAscending);
 
                 setBooks(sortedBooks);
@@ -87,6 +98,38 @@ const LibraryPage = () => {
         };
         fetchData();
     }, []);
+
+    const handleFilter = (params) => {
+        // Cập nhật hoặc thêm params
+
+        if (params.newType) searchParams.set("type", params.newType);
+        if (params.newCategory)
+            searchParams.set("category", params.newCategory);
+
+        // Cập nhật URL
+        setSearchParams(searchParams);
+
+        // Điều hướng đến URL mới
+        nav({
+            pathname: "/library",
+            search: `?${searchParams.toString()}`,
+        });
+    };
+
+    const handleClearFilter = (filter) => {
+        // Cập nhật params
+        if (filter === "category") searchParams.delete("category");
+        if (filter === "type") searchParams.delete("type");
+
+        // Cập nhật URL
+        setSearchParams(searchParams);
+
+        // Điều hướng đến URL mới
+        nav({
+            pathname: "/library",
+            search: `?${searchParams.toString()}`,
+        });
+    };
 
     const standardSort = [
         { name: "Tên tài liệu", type: "title" },
@@ -188,18 +231,66 @@ const LibraryPage = () => {
                         />
                     </div>
                     <div className='filter-modal-body'>
+                        <h6 className='filter-modal-section'>
+                            Lọc theo thể loại
+                            <FontAwesomeIcon
+                                icon={faBroom}
+                                onClick={() => handleClearFilter("category")}
+                            />
+                        </h6>
                         {categories.map((cate, index) => (
                             <div key={index} className={`filter-link`}>
                                 <a
                                     className={
                                         cate.name === category ? "active" : ""
                                     }
-                                    href={`/library?category=${cate.name}`}
+                                    onClick={() =>
+                                        handleFilter({
+                                            newCategory: `${cate.name}`,
+                                        })
+                                    }
                                 >
                                     {cate.name}
                                 </a>
                             </div>
                         ))}
+                    </div>
+                    <div className='filter-modal-body'>
+                        <h6 className='filter-modal-section'>
+                            Lọc theo định dạng
+                            <FontAwesomeIcon
+                                icon={faBroom}
+                                onClick={() => handleClearFilter("type")}
+                            />
+                        </h6>
+                        <div className={`filter-link`}>
+                            <a
+                                className={type === "Text" ? "active" : ""}
+                                onClick={() =>
+                                    handleFilter({ newType: "Text" })
+                                }
+                            >
+                                Văn bản
+                            </a>
+                        </div>
+                        <div className={`filter-link`}>
+                            <a
+                                className={type === "PPT" ? "active" : ""}
+                                onClick={() => handleFilter({ newType: "PPT" })}
+                            >
+                                Power Point
+                            </a>
+                        </div>
+                        <div className={`filter-link`}>
+                            <a
+                                className={type === "Video" ? "active" : ""}
+                                onClick={() =>
+                                    handleFilter({ newType: "Video" })
+                                }
+                            >
+                                Video
+                            </a>
+                        </div>
                     </div>
                 </div>
             </>

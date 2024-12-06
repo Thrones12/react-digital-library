@@ -68,13 +68,13 @@ const schema = new mongoose.Schema({
         },
         type: {
             type: String,
-            enum: ["Text", "PPT", "Audio", "Video"],
+            enum: ["Text", "PPT", "Video"],
             default: "Text",
             require: true,
         },
         format: {
             type: String,
-            enum: ["pdf", "ppt", "mp3", "mp4"],
+            enum: ["pdf", "ppt", "mp4"],
             default: "pdf",
             require: true,
         },
