@@ -12,6 +12,10 @@ const GetAll = async (req, res) => {
             .populate({
                 path: "book",
                 model: "Book",
+                populate: {
+                    path: "DescriptiveMetadata.category",
+                    model: "Category",
+                },
             });
 
         // Get có dữ liệu thì trả về 200 không thì trả về 404

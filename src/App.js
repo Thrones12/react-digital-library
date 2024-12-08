@@ -24,6 +24,14 @@ import LibraryPage from "./pages/Library/LibraryPage";
 import BookPage from "./pages/Book/BookPage";
 
 import AdminUserPage from "./pages/Admin/User/AdminUserPage";
+import AdminBookPage from "./pages/Admin/Book/AdminBookPage";
+import AdminCatePage from "./pages/Admin/Category/AdminCatePage";
+import AdminHistoryPage from "./pages/Admin/History/AdminHistoryPage";
+import AdminIntroPage from "./pages/Admin/Introduction/AdminIntroPage";
+import AdminRequestPage from "./pages/Admin/Request/AdminRequestPage";
+import AdminReviewPage from "./pages/Admin/Review/AdminReviewPage";
+import AdminSupportPage from "./pages/Admin/Support/AdminSupportPage";
+import AdminUploadPage from "./pages/Admin/Upload/AdminUploadPage";
 
 // Cấu hình đường dẫn worker
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
@@ -66,8 +74,17 @@ function App() {
                     <Route path=':id' element={<BookPage />} />
                 </Route>
                 {/* Admin route */}
-                <Route path='/admin' element={<AdminLayout />}>
+                <Route path='/admin/' element={<AdminLayout />}>
                     <Route path='' element={<AdminUserPage />} />
+                    <Route path='user' element={<AdminUserPage />} />
+                    <Route path='book' element={<AdminBookPage />} />
+                    <Route path='category' element={<AdminCatePage />} />
+                    <Route path='history' element={<AdminHistoryPage />} />
+                    <Route path='introduction' element={<AdminIntroPage />} />
+                    <Route path='request' element={<AdminRequestPage />} />
+                    <Route path='review' element={<AdminReviewPage />} />
+                    <Route path='support' element={<AdminSupportPage />} />
+                    <Route path='upload' element={<AdminUploadPage />} />
                 </Route>
             </Routes>
         </Router>

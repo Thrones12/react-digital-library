@@ -4,7 +4,7 @@
   },
   "header": {
     "creator": {
-      "$oid": "6746d781b869094f90eef593"
+      "$oid": "674b52cef4d38e665fcb7c30"
     },
     "createdAt": {
       "$date": "2024-11-17T15:34:59.250Z"
@@ -46,7 +46,7 @@
   },
   "header": {
     "creator": {
-      "$oid": "6746d781b869094f90eef593"
+      "$oid": "674b52cef4d38e665fcb7c30"
     },
     "createdAt": {
       "$date": "2024-11-27T15:34:59.250Z"
@@ -88,7 +88,7 @@
   },
   "header": {
     "creator": {
-      "$oid": "6746d781b869094f90eef593"
+      "$oid": "674b52cef4d38e665fcb7c30"
     },
     "createdAt": {
       "$date": "2024-11-27T15:34:59.250Z"
@@ -130,7 +130,7 @@
   },
   "header": {
     "creator": {
-      "$oid": "6746d781b869094f90eef593"
+      "$oid": "674b52cef4d38e665fcb7c30"
     },
     "createdAt": {
       "$date": "2024-11-27T15:34:59.250Z"
@@ -172,7 +172,7 @@
   },
   "header": {
     "creator": {
-      "$oid": "6746d781b869094f90eef593"
+      "$oid": "674b52cef4d38e665fcb7c30"
     },
     "createdAt": {
       "$date": "2024-08-27T15:34:59.250Z"
@@ -214,7 +214,7 @@
   },
   "header": {
     "creator": {
-      "$oid": "6746d781b869094f90eef593"
+      "$oid": "674b52cef4d38e665fcb7c30"
     },
     "createdAt": {
       "$date": "2024-11-27T15:34:59.250Z"
@@ -238,8 +238,8 @@
     "language": "vi"
   },
   "AdministrativeMetadata": {
-    "type": "Text",
-    "format": "pdf",
+    "type": "Video",
+    "format": "mp4",
     "size": "25kB",
     "copyright": "Trần Thanh Phong",
     "source": null,
@@ -247,7 +247,7 @@
     "hasPrivilege": 0,
     "isAvailable": true
   },
-  "files": "/documents/test.pdf",
+  "files": "/documents/video/test.mp4",
   "__v": 0
 },
 {
@@ -256,7 +256,7 @@
   },
   "header": {
     "creator": {
-      "$oid": "6746d781b869094f90eef593"
+      "$oid": "674b52cef4d38e665fcb7c30"
     },
     "createdAt": {
       "$date": "2024-11-27T15:34:59.250Z"
@@ -280,8 +280,8 @@
     "language": "vi"
   },
   "AdministrativeMetadata": {
-    "type": "PPTX",
-    "format": "pptx",
+    "type": "PPT",
+    "format": "ppt",
     "size": "25kB",
     "copyright": "Trần Thanh Phong",
     "source": null,

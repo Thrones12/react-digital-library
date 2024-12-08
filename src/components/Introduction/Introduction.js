@@ -14,7 +14,13 @@ const Introduction = ({ object }) => {
             ></iframe>
             <div className='introduction-text'>
                 <div className='introduction-title'>{object.title}</div>
-                <div className='introduction-description'>{object.content}</div>
+                <div className='introduction-description'>
+                    <div
+                        dangerouslySetInnerHTML={{
+                            __html: object.content,
+                        }}
+                    />
+                </div>
                 <div className='introduction-more'>
                     <Link to={`/introductions/${object._id}`}>
                         Chi tiết {">"}

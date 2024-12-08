@@ -1,0 +1,40 @@
+.sidebar {
+    width: 12%;
+    min-width: 220px;
+    background-color: rgb(0, 85, 141);
+}
+
+.sidebar-header {
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.sidebar a {
+    color: #fff;
+    padding: 5px 5px;
+    position: relative;
+}
+
+.sidebar a:hover {
+    transform: translateX(10px);
+}
+
+.sidebar a.active {
+    color: yellow;
+    transform: translateX(10px);
+}
+
+.sidebar a.active::before {
+    content: " ";
+    background-color: yellow;
+    position: absolute;
+    top: 0;
+    left: -5px;
+    width: 5px;
+    height: 100%;
+}
