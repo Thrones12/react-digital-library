@@ -158,4 +158,77 @@ const SendVerificationCode = async (req, res) => {
     }
 };
 
-module.exports = { Login, Register, SendVerificationCode };
+// Send password
+const SendPassword = async (req, res) => {
+    const { user } = req.body;
+    const newPassword = generateRandomPassword();
+
+    // Cấu hình Nodemailer
+    const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+            user: "nguyenduy7003@gmail.com", // Thay bằng email của bạn
+            pass: "tesf daab xvbr fyqo", // Thay bằng mật khẩu email của bạn
+        },
+    });
+
+    // Nội dung email
+    const mailOptions = {
+        from: "nguyenduy7003@gmail.com",
+        to: user.email, // Email nhận
+        subject: "Mật khẩu mới",
+        text: `Mật khẩu mới của bạn là: ${newPassword}`,
+    };
+
+    try {
+        // Gửi email
+        await transporter.sendMail(mailOptions);
+        console.log("Email sent successfully");
+        res.status(200).json({ message: "Email sent successfully" });
+        const u = await User.findOne({ email: user.email });
+        u.password = newPassword;
+        const updatedData = await User.findOneAndUpdate({ email: u.email }, u, {
+            new: true,
+        });
+    } catch (error) {
+        console.log("Lỗi Send otp" + error);
+        res.status(500).json({
+            message: "Lỗi Server",
+            details: "Lỗi Send otp" + error,
+        });
+    }
+};
+
+function generateRandomPassword() {
+    const length = 8; // Độ dài tối thiểu
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    const numbers = "0123456789";
+    const specialChars = "@$!%*?&";
+
+    // Chọn ít nhất một ký tự từ mỗi nhóm
+    const randomLetter = letters[Math.floor(Math.random() * letters.length)];
+    const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+    const randomSpecialChar =
+        specialChars[Math.floor(Math.random() * specialChars.length)];
+
+    // Gộp các ký tự còn lại để đủ độ dài
+    const allChars = letters + numbers + specialChars;
+    const remainingLength = length - 3;
+    let remainingChars = "";
+
+    for (let i = 0; i < remainingLength; i++) {
+        remainingChars += allChars[Math.floor(Math.random() * allChars.length)];
+    }
+
+    // Gộp tất cả các ký tự lại và trộn ngẫu nhiên
+    const passwordArray = [
+        randomLetter,
+        randomNumber,
+        randomSpecialChar,
+        ...remainingChars,
+    ].sort(() => Math.random() - 0.5);
+
+    return passwordArray.join("");
+}
+
+module.exports = { Login, Register, SendVerificationCode, SendPassword };

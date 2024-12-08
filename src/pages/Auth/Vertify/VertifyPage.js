@@ -52,8 +52,6 @@ const VertifyPage = () => {
             const resUpdate = await axios.put(`${Config.BASE_API_URL}/users`, {
                 ...user,
             });
-            console.log(resUpdate.data.data);
-
             NotiUtils.success("Xác minh thành công");
             setTimeout(() => {
                 nav("/auth/login");

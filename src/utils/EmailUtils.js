@@ -2,7 +2,6 @@ const nodemailer = require("nodemailer");
 
 const sendVerificationCode = async (email) => {
     const OTP = Math.floor(1000 + Math.random() * 9000);
-    console.log(OTP);
 
     // Cấu hình Nodemailer
     const transporter = nodemailer.createTransport({

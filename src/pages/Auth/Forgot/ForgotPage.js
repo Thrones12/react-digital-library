@@ -1,9 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Config from "../../../utils/Config";
+import NotiUtils from "../../../utils/NotiUtils";
 import "./ForgotPage.css";
 
 const ForgotPage = () => {
+    const API = `${Config.BASE_API_URL}/auth`;
+    const nav = useNavigate();
     const inputFieldRef = useRef(null);
+    const [email, setEmail] = useState();
+    const [active, setActive] = useState(false);
+    const [inputOTP, setInputOTP] = useState(["", "", "", ""]);
+    const [inputs, setInputs] = useState([]);
 
     useEffect(() => {
         if (inputFieldRef.current) {
@@ -12,10 +21,6 @@ const ForgotPage = () => {
             setInputs(inputElements);
         }
     }, []);
-
-    const [active, setActive] = useState(false);
-    const [inputOTP, setInputOTP] = useState(["", "", "", ""]);
-    const [inputs, setInputs] = useState([]);
 
     const handleInputOTP = (e, index) => {
         setInputOTP((prevArray) => {
@@ -35,10 +40,45 @@ const ForgotPage = () => {
         }
     };
 
+    const sendOTP = async (e) => {
+        try {
+            e.preventDefault();
+            const res = await axios.post(`${API}/send-otp`, {
+                email: email,
+            });
+            NotiUtils.info("OTP đã được gửi lại, hãy kiểm tra và xác minh.");
+            setActive(true);
+        } catch (err) {
+            NotiUtils.error("Gửi mail không thành công");
+        }
+    };
+
+    const submitVertify = async (e) => {
+        e.preventDefault();
+
+        const res = await axios.get(
+            `${Config.BASE_API_URL}/users/email/${email}`
+        );
+        const user = res.data.data;
+
+        if (user.otpVertify === inputOTP.join("")) {
+            const resUpdate = await axios.put(`${API}/forgot`, {
+                user,
+            });
+            console.log(resUpdate);
+
+            NotiUtils.success("Mật khẩu mới đã được gửi vào email");
+            setTimeout(() => {
+                nav("/auth/login");
+            }, 1500);
+        } else {
+            NotiUtils.error("Xác minh thất bại");
+        }
+    };
+
     return (
         <div className='forgot-page'>
             <div className='container'>
-                <button onClick={() => setActive(!active)}>Click</button>
                 <div className={`flip-card ${active ? "active" : ""}`}>
                     <div className='flip-card-inner'>
                         <div className='flip-card-front'>
@@ -48,8 +88,17 @@ const ForgotPage = () => {
                                 Nhập Email của tài khoản cần tìm lại mật khẩu.
                             </p>
                             <form>
-                                <input type='email' placeholder='Email' />
-                                <button className='active'>Register</button>
+                                <input
+                                    type='email'
+                                    placeholder='Email'
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                <button
+                                    className='active'
+                                    onClick={(e) => sendOTP(e)}
+                                >
+                                    Xác nhận
+                                </button>
                             </form>
 
                             <p>
@@ -64,7 +113,7 @@ const ForgotPage = () => {
                             <div className='flip-card-back-header'></div>
                             <h3>Enter OTP</h3>
                             <p>OTP đã được gửi qua Email</p>
-                            <form>
+                            <form onSubmit={submitVertify}>
                                 <div
                                     className='input-field'
                                     ref={inputFieldRef}
@@ -97,7 +146,7 @@ const ForgotPage = () => {
                                             : ""
                                     }`}
                                 >
-                                    Vertify
+                                    Xác nhận
                                 </button>
                             </form>
                             <p>

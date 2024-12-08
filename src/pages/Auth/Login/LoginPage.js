@@ -44,7 +44,7 @@ const LoginPage = () => {
 
                 setTimeout(() => {
                     if (res.data.data.role === "User") {
-                        nav(-1);
+                        nav("/home");
                     } else {
                         nav("/admin");
                     }
