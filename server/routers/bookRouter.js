@@ -7,5 +7,6 @@ router.get("/:id", bookController.GetByID);
 router.post("/", bookController.Create);
 router.put("/:id", bookController.Update);
 router.delete("/:id", bookController.Delete);
+router.put("/download/:id", bookController.Download);
 
 module.exports = router;

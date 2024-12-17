@@ -79,9 +79,7 @@ const LibraryPage = () => {
 
                 setBooks(sortedBooks);
                 setPageData(sortedBooks.slice(0, Config.LIMIT));
-            } catch (err) {
-                NotiUtils.error("Tải trang thất bại");
-            }
+            } catch (err) {}
         };
 
         fetchData();
@@ -92,9 +90,7 @@ const LibraryPage = () => {
             try {
                 const res = await axios.get(CATE_API);
                 setCategories(res.data.data);
-            } catch (err) {
-                NotiUtils.error("Tải trang thất bại");
-            }
+            } catch (err) {}
         };
         fetchData();
     }, []);
@@ -231,8 +227,11 @@ const LibraryPage = () => {
                         />
                     </div>
                     <div className='filter-modal-body'>
-                        <h6 className='filter-modal-section'>
-                            Lọc theo thể loại
+                        <h6
+                            className='filter-modal-section'
+                            style={{ fontSize: "18px" }}
+                        >
+                            Theo thể loại
                             <FontAwesomeIcon
                                 icon={faBroom}
                                 onClick={() => handleClearFilter("category")}
@@ -256,8 +255,11 @@ const LibraryPage = () => {
                         ))}
                     </div>
                     <div className='filter-modal-body'>
-                        <h6 className='filter-modal-section'>
-                            Lọc theo định dạng
+                        <h6
+                            className='filter-modal-section'
+                            style={{ fontSize: "18px" }}
+                        >
+                            Theo định dạng
                             <FontAwesomeIcon
                                 icon={faBroom}
                                 onClick={() => handleClearFilter("type")}

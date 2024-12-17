@@ -1,29 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Config from "../../../utils/Config";
-import NotiUtils from "../../../utils/NotiUtils";
+import AdminPagination from "../../../components/Admin/Pagination/AdminPagination";
 
 const AdminUserPage = () => {
     const API = `${Config.BASE_API_URL}/histories`;
-    const [data, setData] = useState();
     const [datas, setDatas] = useState();
+    const [pageData, setPageData] = useState();
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const res = await axios.get(API);
                 setDatas(res.data.data);
-                console.log(res.data.data);
             } catch (err) {
                 console.log(err);
             }
         };
         fetchData();
     }, []);
-
-    const handleClickRow = (id) => {
-        const findData = datas.find((d) => d._id === id);
-        setData(findData);
-    };
     return (
         <div className='admin-container'>
             <div className='admin-header'>Lịch sử tải sách</div>
@@ -43,12 +37,9 @@ const AdminUserPage = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {datas &&
-                                datas.map((d, index) => (
-                                    <tr
-                                        key={index}
-                                        onClick={() => handleClickRow(d._id)}
-                                    >
+                            {pageData &&
+                                pageData.map((d, index) => (
+                                    <tr key={index}>
                                         <td>{index + 1}</td>
                                         <td>{d.user.fullName}</td>
                                         <td>{d.user.email}</td>
@@ -72,6 +63,13 @@ const AdminUserPage = () => {
                                 ))}
                         </tbody>
                     </table>
+                    {datas && (
+                        <AdminPagination
+                            data={datas}
+                            setPageData={setPageData}
+                            customLimit={30}
+                        />
+                    )}
                 </div>
             </div>
         </div>

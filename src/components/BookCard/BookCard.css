@@ -28,12 +28,13 @@
 .book-card .card-img {
     width: 100%;
     height: 280px;
+    background-color: #fff;
 }
 
 .book-card .card-title {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin: 15px 15px 0;
     color: var(--color-dark-brown);
     font-weight: 700;
     text-shadow: var(--box-shadow);

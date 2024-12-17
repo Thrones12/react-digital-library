@@ -1,89 +1,91 @@
-[{
-  "_id": {
-    "$oid": "6748939607e8c248f63b773c"
-  },
-  "name": "Tiểu thuyết",
-  "picture": "/images/categories/default.jpg",
-  "download": 156
-},
-{
-  "_id": {
-    "$oid": "6748939607e8c248f63b773d"
-  },
-  "name": "Tự truyện",
-  "picture": "/images/categories/default.jpg",
-  "download": 1631
-},
-{
-  "_id": {
-    "$oid": "6748939607e8c248f63b773e"
-  },
-  "name": "Sách giáo khoa",
-  "picture": "/images/categories/default.jpg",
-  "download": 7
-},
-{
-  "_id": {
-    "$oid": "6748939607e8c248f63b773f"
-  },
-  "name": "Sách tham khảo",
-  "picture": "/images/categories/default.jpg",
-  "download": 135
-},
-{
-  "_id": {
-    "$oid": "6748939607e8c248f63b7740"
-  },
-  "name": "Sách học ngoại ngữ",
-  "picture": "/images/categories/default.jpg",
-  "download": 711
-},
-{
-  "_id": {
-    "$oid": "6748939607e8c248f63b7741"
-  },
-  "name": "Công nghệ thông tin",
-  "picture": "/images/categories/default.jpg",
-  "download": 17
-},
-{
-  "_id": {
-    "$oid": "6748939607e8c248f63b7742"
-  },
-  "name": "Khoa học xã hội",
-  "picture": "/images/categories/default.jpg",
-  "download": 671
-},
-{
-  "_id": {
-    "$oid": "6748939607e8c248f63b7743"
-  },
-  "name": "Khoa học tự nhiên",
-  "picture": "/images/categories/default.jpg",
-  "download": 1
-},
-{
-  "_id": {
-    "$oid": "6748939607e8c248f63b7744"
-  },
-  "name": "Phát triển kỹ năng",
-  "picture": "/images/categories/default.jpg",
-  "download": 169
-},
-{
-  "_id": {
-    "$oid": "6748939607e8c248f63b7745"
-  },
-  "name": "Kinh tế - tài chính",
-  "picture": "/images/categories/default.jpg",
-  "download": 16
-},
-{
-  "_id": {
-    "$oid": "6748a9ea51a0d72713c4b222"
-  },
-  "name": "Triết học",
-  "picture": "/images/categories/default.jpg",
-  "download": 167,
-  "__v": 0
-}]
+[
+    {
+        "_id": {
+            "$oid": "6748939607e8c248f63b773c"
+        },
+        "name": "Sách học thuật",
+        "picture": "/images/categories/sachhocthuat.png",
+        "download": 156
+    },
+    {
+        "_id": {
+            "$oid": "6748939607e8c248f63b773d"
+        },
+        "name": "Sách kỹ năng",
+        "picture": "/images/categories/sachkynang.png",
+        "download": 1631
+    },
+    {
+        "_id": {
+            "$oid": "6748939607e8c248f63b773e"
+        },
+        "name": "Sách văn học",
+        "picture": "/images/categories/sachvanhoc.png",
+        "download": 7
+    },
+    {
+        "_id": {
+            "$oid": "6748939607e8c248f63b773f"
+        },
+        "name": "Sách khoa học",
+        "picture": "/images/categories/sachkhoahoc.png",
+        "download": 135
+    },
+    {
+        "_id": {
+            "$oid": "6748939607e8c248f63b7740"
+        },
+        "name": "Sách thiếu nhi",
+        "picture": "/images/categories/sachthieunhi.png",
+        "download": 711
+    },
+    {
+        "_id": {
+            "$oid": "6748939607e8c248f63b7741"
+        },
+        "name": "Sách nghệ thuật",
+        "picture": "/images/categories/sachnghethuat.png",
+        "download": 17
+    },
+    {
+        "_id": {
+            "$oid": "6748939607e8c248f63b7742"
+        },
+        "name": "Tài liệu tham khảo",
+        "picture": "/images/categories/tailieuthamkhao.png",
+        "download": 671
+    },
+    {
+        "_id": {
+            "$oid": "6748939607e8c248f63b7743"
+        },
+        "name": "Sách ngôn ngữ",
+        "picture": "/images/categories/sachngonngu.png",
+        "download": 1
+    },
+    {
+        "_id": {
+            "$oid": "6748939607e8c248f63b7744"
+        },
+        "name": "Sách lịch sử",
+        "picture": "/images/categories/sachlichsu.png",
+        "download": 169
+    },
+    {
+        "_id": {
+            "$oid": "6748939607e8c248f63b7745"
+        },
+        "name": "Kinh tế - tài chính",
+        "picture": "/images/categories/sachkinhte.png",
+        "download": 16
+    },
+    {
+        "_id": {
+            "$oid": "6748a9ea51a0d72713c4b222"
+        },
+        "name": "Luận văn",
+        "picture": "/images/categories/luanvan.png",
+        "download": 167,
+        "__v": 0
+    }
+]

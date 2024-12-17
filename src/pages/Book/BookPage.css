@@ -206,3 +206,8 @@ button#toggleDescription:hover {
     overflow: hidden;
     margin-top: 20px;
 }
+
+.review-list .pagination {
+    margin: 5px auto 30px;
+    justify-content: center;
+}

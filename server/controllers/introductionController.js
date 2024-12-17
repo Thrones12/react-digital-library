@@ -64,6 +64,7 @@ const GetByID = async (req, res) => {
 const Create = async (req, res) => {
     try {
         const insertData = req.body;
+        console.log(insertData);
         const existingData = await Introduction.findOne({
             title: insertData.title,
         });
@@ -80,7 +81,6 @@ const Create = async (req, res) => {
 
             if (validateResult.state === true) {
                 const newData = new Introduction(validateResult.data);
-                console.log(insertData);
 
                 await newData.save();
 

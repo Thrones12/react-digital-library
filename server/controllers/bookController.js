@@ -180,4 +180,25 @@ const Delete = async (req, res) => {
     }
 };
 
-module.exports = { GetAll, GetByID, Create, Update, Delete };
+// Tăng lượt tải Book
+const Download = async (req, res) => {
+    try {
+        const data = await Book.findOne({ _id: req.params.id }); // Tìm tất cả
+
+        data.AdministrativeMetadata.download += 1;
+
+        data.save();
+
+        res.status(200).json({
+            message: "Tăng lượt tải Book thành công",
+            data: data,
+        });
+    } catch (err) {
+        res.status(500).json({
+            message: "Lỗi server",
+            details: "Lỗi Download Book: " + err,
+        });
+    }
+};
+
+module.exports = { GetAll, GetByID, Create, Update, Delete, Download };

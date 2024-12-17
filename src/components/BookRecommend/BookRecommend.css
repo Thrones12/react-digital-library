@@ -29,6 +29,7 @@
 }
 
 .book-recommend-title {
+    color: var(--color-dark-brown);
     text-align: left;
     flex: 1;
     display: -webkit-box; /* Dùng Flexbox để hỗ trợ cắt dòng */

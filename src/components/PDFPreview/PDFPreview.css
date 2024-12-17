@@ -16,7 +16,7 @@
     cursor: pointer;
 }
 .pdf-container {
-    max-height: 500px; /* Giới hạn chiều cao tương ứng A4 */
+    max-height: 1240px; /* Giới hạn chiều cao tương ứng A4 */
     width: 100%; /* Tăng chiều rộng (tùy chỉnh theo nhu cầu) */
     height: auto; /* Đảm bảo không ép chiều cao */
     margin: 0 auto; /* Căn giữa container */

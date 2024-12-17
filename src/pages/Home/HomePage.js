@@ -36,8 +36,10 @@ const HomePage = () => {
     //Fetch category
     useEffect(() => {
         const fetchData = async () => {
-            const res = await axios.get(`${API}/categories`);
-            setCategories(res.data.data);
+            try {
+                const res = await axios.get(`${API}/categories`);
+                setCategories(res.data.data);
+            } catch (err) {}
         };
         fetchData();
     }, []);
@@ -45,8 +47,10 @@ const HomePage = () => {
     //Fetch books
     useEffect(() => {
         const fetchData = async () => {
-            const res = await axios.get(`${API}/books`);
-            setRecommends(BookController.GetTop6(res.data.data));
+            try {
+                const res = await axios.get(`${API}/books`);
+                setRecommends(BookController.GetTop6(res.data.data));
+            } catch (err) {}
         };
         fetchData();
     }, []);
@@ -54,8 +58,10 @@ const HomePage = () => {
     //Fetch introduction
     useEffect(() => {
         const fetchData = async () => {
-            const res = await axios.get(`${API}/introductions`);
-            setIntroductions(IntroductionController.GetNew3(res.data.data));
+            try {
+                const res = await axios.get(`${API}/introductions`);
+                setIntroductions(IntroductionController.GetNew3(res.data.data));
+            } catch (err) {}
         };
         fetchData();
     }, []);

@@ -7,11 +7,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./Pagination.css";
 
-const Pagination = ({ data, setPageData, scrollRef, isIntro }) => {
+const Pagination = ({ data, setPageData, scrollRef, isIntro, isReview }) => {
     const [page, setPage] = useState(1);
     const [pageRange, setPageRange] = useState([]);
     const [pageTotal, setPageTotal] = useState(1);
-    const LIMIT = isIntro ? Config.INTRO_LIMIT : Config.LIMIT;
+    let LIMIT = isIntro ? Config.INTRO_LIMIT : isReview ? 3 : Config.LIMIT;
 
     useEffect(() => {
         const pageTotal = Math.ceil(data.length / LIMIT);
@@ -35,7 +35,7 @@ const Pagination = ({ data, setPageData, scrollRef, isIntro }) => {
 
     useEffect(() => {
         // Cuộn đến phần tử cụ thể
-        if (scrollRef.current) {
+        if (scrollRef && scrollRef.current) {
             scrollRef.current.scrollIntoView({ behavior: "smooth" });
         }
     }, [page]);
@@ -72,7 +72,7 @@ const Pagination = ({ data, setPageData, scrollRef, isIntro }) => {
                 </button>
             ))}
             <button
-                disabled={pageTotal === 1}
+                disabled={page === pageTotal}
                 className='pag-btn'
                 onClick={() => {
                     handlePageChange(page + 1);

@@ -1,17 +1,50 @@
-// file Editor.js
-import React, { useRef, useState } from "react";
-import { Editor, EditorState, RichUtils, Modifier } from "draft-js";
+import React, { useRef, useState, useEffect } from "react";
+import {
+    Editor,
+    EditorState,
+    RichUtils,
+    Modifier,
+    ContentState,
+    convertFromHTML,
+} from "draft-js";
 import { stateToHTML } from "draft-js-export-html";
 
 import "./CustomEditor.css";
 
-function CustomEditor() {
+function CustomEditor({ content, onContentChange }) {
     const editorRef = useRef();
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
     const currentInlineStyle = editorState.getCurrentInlineStyle();
     const isBold = currentInlineStyle.has("BOLD");
     const isItalic = currentInlineStyle.has("ITALIC");
     const isUnderline = currentInlineStyle.has("UNDERLINE");
+
+    useEffect(() => {
+        if (content !== "") {
+            const blocksFromHTML = convertFromHTML(content);
+            const contentState = ContentState.createFromBlockArray(
+                blocksFromHTML.contentBlocks,
+                blocksFromHTML.entityMap
+            );
+            setEditorState(EditorState.createWithContent(contentState));
+        } else {
+            setEditorState(EditorState.createEmpty());
+        }
+    }, [content]);
+
+    // Gửi nội dung HTML về component cha khi editorState thay đổi
+    useEffect(() => {
+        const currentContent = editorState.getCurrentContent();
+        const html = stateToHTML(currentContent);
+        const cleanedHtml = html.replace(
+            /<p>/g,
+            "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+        );
+
+        if (onContentChange) {
+            onContentChange(cleanedHtml); // Gọi callback và gửi HTML
+        }
+    }, [editorState, onContentChange]);
 
     const focus = () => {
         editorRef.current.focus();
@@ -82,7 +115,6 @@ function CustomEditor() {
                 onChange={setEditorState}
                 onTab={handleOnTab}
             />
-            <button onClick={getContent}>Xác nhận</button>
         </div>
     );
 }

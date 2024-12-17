@@ -61,13 +61,19 @@ const PDFPreview = ({ document }) => {
                 </p>
                 <button
                     disabled={pageNumber <= 1}
-                    onClick={() => setPageNumber((prev) => prev - 1)}
+                    onClick={() => {
+                        setPageNumber((prev) => prev - 1);
+                        setTempPageNumber((prev) => prev - 1);
+                    }}
                 >
                     Previous
                 </button>
                 <button
                     disabled={pageNumber >= numPages}
-                    onClick={() => setPageNumber((prev) => prev + 1)}
+                    onClick={() => {
+                        setPageNumber((prev) => prev + 1);
+                        setTempPageNumber((prev) => prev + 1);
+                    }}
                 >
                     Next
                 </button>

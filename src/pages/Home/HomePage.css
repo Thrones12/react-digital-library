@@ -227,6 +227,7 @@
 }
 
 .recommend-item-description {
+    color: #000;
     text-align: justify;
     display: flex; /* Standard display option */
     line-clamp: 4; /* Standard property */

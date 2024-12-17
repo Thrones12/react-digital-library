@@ -1,4 +1,5 @@
 const Category = require("../models/category");
+const Book = require("../models/book");
 const Validator = require("../utils/Validator");
 
 // Get All
@@ -55,6 +56,7 @@ const GetByID = async (req, res) => {
 const Create = async (req, res) => {
     try {
         const insertData = req.body;
+
         const existingData = await Category.findOne({
             name: insertData.name,
         });
@@ -70,7 +72,12 @@ const Create = async (req, res) => {
 
             if (validateResult.state === true) {
                 const newData = new Category(validateResult.data);
+                if (newData.download === null) newData.download = 0;
 
+                if (newData.picture === "")
+                    newData.picture = "/images/categories/default.jpg";
+
+                console.log(newData);
                 await newData.save();
 
                 res.status(200).json({
@@ -95,6 +102,7 @@ const Create = async (req, res) => {
 // Cập nhập Category
 const Update = async (req, res) => {
     try {
+        console.log("updateData");
         const updateData = req.body;
         // Validation data
         const validateResult = Validator.CategoryValidation(updateData);
@@ -161,10 +169,35 @@ const Delete = async (req, res) => {
     }
 };
 
+// Tăng lượt tải Cate
+const Download = async (req, res) => {
+    try {
+        const data = await Book.findOne({ _id: req.params.id });
+        const cate = await Category.findOne({
+            _id: data.DescriptiveMetadata.category,
+        }); // Tìm tất cả
+
+        cate.download += 1;
+
+        cate.save();
+
+        res.status(200).json({
+            message: "Tăng lượt tải Cate thành công",
+            data: cate,
+        });
+    } catch (err) {
+        res.status(500).json({
+            message: "Lỗi server",
+            details: "Lỗi Download Cate: " + err,
+        });
+    }
+};
+
 module.exports = {
     GetAll,
     GetByID,
     Create,
     Update,
     Delete,
+    Download,
 };

@@ -80,6 +80,7 @@ const GetByEmail = async (req, res) => {
 const Create = async (req, res) => {
     try {
         const insertData = req.body;
+        console.log(insertData);
         const existingUser = await User.findOne({ email: insertData.email });
         // Kiểm tra user có tồn tại trong csdl không
         if (existingUser) {
@@ -95,6 +96,7 @@ const Create = async (req, res) => {
                 const newData = new User(validateResult.data);
 
                 await newData.save();
+                console.log(newData);
 
                 res.status(200).json({
                     message: "Thêm User thành công",

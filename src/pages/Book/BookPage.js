@@ -17,7 +17,7 @@ import "./BookPage.css";
 const BookPage = () => {
     const BOOK_API = `${Config.BASE_API_URL}/books`;
     const HIS_API = `${Config.BASE_API_URL}/histories`;
-    const AUTH_API = `${Config.BASE_API_URL}/auth`;
+    const CATE_API = `${Config.BASE_API_URL}/categories`;
     const USER_API = `${Config.BASE_API_URL}/users`;
     const SUPPORT_API = `${Config.BASE_API_URL}/supports`;
     const REVIEW_API = `${Config.BASE_API_URL}/reviews`;
@@ -118,6 +118,16 @@ const BookPage = () => {
             );
 
             setUser(resUser.data.data);
+            await axios.put(`${BOOK_API}/download/${book_id}`);
+            book.AdministrativeMetadata.download += 1;
+
+            await axios.put(`${CATE_API}/download/${book_id}`);
+            recommends.forEach((r) => {
+                console.log(r);
+
+                if (r._id === book_id) r.AdministrativeMetadata.download += 1;
+            });
+            window.location.reload();
         } catch (err) {}
     };
 
@@ -298,7 +308,7 @@ const BookPage = () => {
                                                 Theo dõi
                                             </button>
                                             {book.AdministrativeMetadata
-                                                .hasPrivilege ===
+                                                .hasPrivilege <=
                                             user.privilege ? (
                                                 <button
                                                     className='btn-download'

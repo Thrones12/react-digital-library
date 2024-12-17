@@ -22,3 +22,7 @@
     text-align: justify;
     margin-bottom: 20px;
 }
+
+.card-pagination {
+    background-color: var(--color-off-white);
+}

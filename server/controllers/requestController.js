@@ -4,15 +4,10 @@ const Validator = require("../utils/Validator");
 // Get All
 const GetAll = async (req, res) => {
     try {
-        const data = await Request.find({})
-            .populate({
-                path: "user",
-                model: "User",
-            })
-            .populate({
-                path: "category",
-                model: "Category",
-            });
+        const data = await Request.find({}).populate({
+            path: "user",
+            model: "User",
+        });
 
         // Get có dữ liệu thì trả về 200 không thì trả về 404
         if (data.length > 0) {

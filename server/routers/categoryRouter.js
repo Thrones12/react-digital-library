@@ -7,5 +7,6 @@ router.get("/:id", categoryController.GetByID);
 router.post("/", categoryController.Create);
 router.put("/:id", categoryController.Update);
 router.delete("/:id", categoryController.Delete);
+router.put("/download/:id", categoryController.Download);
 
 module.exports = router;

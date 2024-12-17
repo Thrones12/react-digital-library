@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import "./BookRecommend.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,4 +21,4 @@ const BookRecommend = ({ data }) => {
     );
 };
 
-export default BookRecommend;
+export default memo(BookRecommend);

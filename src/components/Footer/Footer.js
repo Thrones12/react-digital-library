@@ -10,7 +10,8 @@ const Footer = () => {
             <div className='container'>
                 <div className='footer'>
                     <p className='copy-right'>
-                        Copyright © 2024 Thư viện kỹ thuật số - Phạm Hùng Phong
+                        Copyright © 2024 by Phạm Hùng Phong - Thư viện kỹ thuật
+                        số
                     </p>
                     <div className='socials'>
                         <Link
