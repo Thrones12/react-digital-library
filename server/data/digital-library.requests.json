@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "674c65c1a72c902c1053cf29"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "title": "Bàn về văn minh",
+  "author": "Fuchikawa",
+  "category": "Triết học",
+  "publisher": "NXB văn học",
+  "reason": "12413513",
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2024-12-01T13:33:53.075Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-01T13:33:53.075Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674c6636a72c902c1053cf2d"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "title": "Bàn về văn minhhhh",
+  "author": "Fuchikawa",
+  "category": "Triết học",
+  "publisher": "NXB văn học",
+  "reason": "12413513",
+  "status": "Approved",
+  "createdAt": {
+    "$date": "2024-12-01T13:35:50.156Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-01T13:35:50.156Z"
+  },
+  "__v": 0
+}]

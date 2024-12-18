@@ -1,0 +1,240 @@
+[{
+  "_id": {
+    "$oid": "6751a7db65c33dd4795ba6af"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "6748b1483a5723dd7b49538f"
+  },
+  "createdAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "rating": 5,
+  "content": "Tài liệu có nội dung khá đầy đủ và cung cấp nhiều thông tin giá trị. Tuy nhiên, phần trình bày có thể cải thiện hơn, chẳng hạn như sử dụng thêm biểu đồ hoặc hình ảnh minh họa để giúp người đọc hình dung dễ dàng hơn.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751ab568e41a6b6bc0057b4"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "6748b1483a5723dd7b49538f"
+  },
+  "createdAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "rating": 4,
+  "content": "Truyện thật sự rất hay, đề cử mọi người đọc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67618eab02cd434f5df74ebd"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "6748b1483a5723dd7b49538f"
+  },
+  "createdAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "rating": 5,
+  "content": "Đây là một tài liệu mà mọi người nên đọc nếu muốn tìm hiểu sâu về chủ đề này. Nội dung được biên soạn tỉ mỉ và đáng tin cậy. Tôi sẽ giới thiệu tài liệu này cho đồng nghiệp và bạn bè của mình.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67618eab02cd434f5df74ebe"
+  },
+  "user": {
+    "$oid": "676091e002cd434f5df74e75"
+  },
+  "book": {
+    "$oid": "6748b1483a5723dd7b49538f"
+  },
+  "createdAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "rating": 5,
+  "content": "Một tài liệu tuyệt vời! Nội dung ngắn gọn, súc tích nhưng vẫn đầy đủ thông tin cần thiết. Cách trình bày mạch lạc và có hệ thống giúp người đọc dễ dàng tiếp thu kiến thức mà không bị choáng ngợp.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67618eab02cd434f5df74ebf"
+  },
+  "user": {
+    "$oid": "676091e002cd434f5df74e74"
+  },
+  "book": {
+    "$oid": "6748b1483a5723dd7b49538f"
+  },
+  "createdAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "rating": 5,
+  "content": "Tài liệu không chỉ cung cấp lý thuyết mà còn đưa ra những ví dụ và ứng dụng thực tế rất hữu ích. Sau khi đọc xong, tôi đã áp dụng được rất nhiều kiến thức vào công việc của mình. Đây chắc chắn là một nguồn tài liệu đáng để tham khảo.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67618eab02cd434f5df74ec0"
+  },
+  "user": {
+    "$oid": "676091e002cd434f5df74e73"
+  },
+  "book": {
+    "$oid": "6748b1483a5723dd7b49538f"
+  },
+  "createdAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-27T15:34:59.250Z"
+  },
+  "rating": 5,
+  "content": "Tài liệu này thực sự rất hữu ích và chi tiết. Nội dung được trình bày rõ ràng, dễ hiểu và phù hợp cho cả người mới bắt đầu lẫn người đã có kinh nghiệm. Tôi đánh giá cao cách tác giả phân tích và giải thích từng phần một cách khoa học và mạch lạc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751be7dbcd8a183e77f06e6"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "6748b1993a5723dd7b495393"
+  },
+  "rating": 5,
+  "content": "asdasd",
+  "createdAt": {
+    "$date": "2024-12-05T14:53:49.429Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-05T14:53:49.429Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751bec5bcd8a183e77f0732"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "6748b0923a5723dd7b4901d3"
+  },
+  "rating": 5,
+  "content": "asdasd",
+  "createdAt": {
+    "$date": "2024-12-05T14:55:01.516Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-05T14:55:01.516Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751bf7ebcd8a183e77f07cb"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "674ae7da2700900a1d174296"
+  },
+  "rating": 5,
+  "content": "asdasd",
+  "createdAt": {
+    "$date": "2024-12-05T14:58:06.116Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-05T14:58:06.116Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751bf9bbcd8a183e77f07fe"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "674ae86b2700900a1d17429c"
+  },
+  "rating": 5,
+  "content": "asd",
+  "createdAt": {
+    "$date": "2024-12-05T14:58:35.622Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-05T14:58:35.622Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751bfdabcd8a183e77f085f"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "674ae8fb2700900a1d1742c3"
+  },
+  "rating": 5,
+  "content": "123",
+  "createdAt": {
+    "$date": "2024-12-05T14:59:38.825Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-05T14:59:38.825Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751c057bcd8a183e77f08fc"
+  },
+  "user": {
+    "$oid": "674b7101acee208dff767938"
+  },
+  "book": {
+    "$oid": "674aea532700900a1d1742fd"
+  },
+  "rating": 5,
+  "content": "123",
+  "createdAt": {
+    "$date": "2024-12-05T15:01:43.311Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-05T15:01:43.311Z"
+  },
+  "__v": 0
+}]
