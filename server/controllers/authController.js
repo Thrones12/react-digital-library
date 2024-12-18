@@ -7,7 +7,6 @@ const nodemailer = require("nodemailer");
 const Login = async (req, res) => {
     try {
         const { email, password } = req.body;
-        console.log(email);
 
         const user = await User.findOne({ email: email })
             .populate({

@@ -59,14 +59,19 @@ const AdminUserPage = () => {
         }
     };
     const handleDelete = async () => {
-        try {
-            const res = await axios.delete(`${API}/${data._id}`);
-            const resetData = await axios.get(API);
-            setDatas(resetData.data.data);
-            NotiUtils.success("Xóa thành công");
-        } catch (err) {
-            NotiUtils.error("Xóa thất bại");
-        }
+        NotiUtils.infoWithDirection({
+            text: "Bạn có chắc chắn muốn xóa?",
+            func: async () => {
+                try {
+                    const res = await axios.delete(`${API}/${data._id}`);
+                    const resetData = await axios.get(API);
+                    setDatas(resetData.data.data);
+                    NotiUtils.success("Xóa thành công");
+                } catch (err) {
+                    NotiUtils.error("Xóa thất bại");
+                }
+            },
+        });
     };
     return (
         <div className='admin-container'>

@@ -54,7 +54,7 @@ const Sidebar = () => {
                         className={active === "category" ? "active" : ""}
                         to='/admin/category'
                     >
-                        Thể loại
+                        Danh mục
                     </Link>
                 </div>
                 <div className='nav-link'>
